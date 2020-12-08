@@ -7,15 +7,15 @@
 .card-grid
 {
 position: absolute;
-  left: 18.181818%;
+  left: 25%;
   top: 300px;
-  right: 18.181818%;
+  right: 25%;
   width: auto;
 
   display: grid;
   grid-gap: 3rem;
   align-items: center;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   background-color: white;
   padding-bottom: 50px;
     

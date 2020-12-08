@@ -1,0 +1,66 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    
+}
+
+nav
+{
+    height: 100px;
+    background-color: #FA314A;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+    .logo
+    {
+
+
+
+        .logo-h4
+        {
+            font-family: "Raleway Italic";
+            font-size: 25px;
+            font-weight: unset;
+            user-select: none;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+    }
+    ul
+    {
+        display: flex;
+        justify-content: space-around; 
+        width: 10%;
+        text-decoration: none;
+        li 
+        {
+            list-style: none;
+            
+            a 
+            {
+                font-size: 20px;
+                font-weight: bold;
+                font-family: "Raleway";
+                color: black;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+
+.header-holder
+{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 50px;
+    .header-h1
+    {
+        font-weight: unset;
+        font-family: "Raleway Italic";
+        font-size: 60px;
+    }
+}
