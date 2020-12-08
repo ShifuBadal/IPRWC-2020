@@ -1,0 +1,22 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+.card-grid
+{
+position: absolute;
+  left: 18.181818%;
+  top: 300px;
+  right: 18.181818%;
+  width: auto;
+
+  display: grid;
+  grid-gap: 3rem;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  background-color: white;
+  padding-bottom: 50px;
+    
+}

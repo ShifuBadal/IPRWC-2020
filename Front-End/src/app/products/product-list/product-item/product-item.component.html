@@ -1,0 +1,16 @@
+<div class="card">
+    <section class="product-icon-holder">
+        <img class="product-icon-img" (click)="onBasketClick()" src="/assets/icons/red_basket.png" alt="">
+        <img class="product-icon-img" (click)="onHeartClick()" src="/assets/icons/heart.png" alt="">
+        <img class="product-icon-img" (click)="onShareClick()" src="/assets/icons/share.png" alt="">
+    </section>
+
+    <section class="product-image-holder">
+        <img class="product-img" [src] = "product.imagePath"  alt="img">
+    </section>
+    <section class="product-name-holder">
+        <h5 class="product-brand">{{ product.brand }}</h5>
+        <h5 class="product-name">{{ product.name }}</h5>
+        <h5 class="product-price">{{ product.price }}</h5>
+    </section>
+</div>
