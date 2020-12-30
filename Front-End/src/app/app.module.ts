@@ -10,6 +10,7 @@ import { ProductListComponent } from './products/product-list/product-list.compo
 import { ProductItemComponent } from './products/product-list/product-item/product-item.component';
 import { ProductService } from './products/product.service';
 import { HeaderComponent } from './header/header.component';
+import { HomepageComponent } from './homepage/homepage.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HeaderComponent } from './header/header.component';
     ProductDetailComponent,
     ProductListComponent,
     ProductItemComponent,
-    HeaderComponent
+    HeaderComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule

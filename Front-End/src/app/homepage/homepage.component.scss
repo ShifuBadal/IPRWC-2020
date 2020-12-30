@@ -1,0 +1,58 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    
+}
+
+.home-page 
+{
+    height: 82.6vh;
+    // width: 1310px;
+    background-color: #F1F0ED;
+
+    .title-img-holder
+    {
+        display: grid;
+        
+        figure
+        {
+            position: absolute;
+            top: 100px;
+            left: 1303px;
+        }
+    }
+
+    .title 
+    {
+        display:grid;
+        grid-auto-flow: row;
+        flex-direction: column;
+        padding-top: 200px;
+        padding-left: 400px;
+
+        h1
+        {
+            font-size: 48px;
+        }
+
+        h5
+        {
+            font-size: 16px;
+            padding-bottom: 30px;
+            color: #5E724E;
+        }
+
+        button
+        {
+            text-align: center;
+            background-color: #5E724E;
+            font-size: 18px;
+            width: 280px;
+            border: none;
+            padding: 10px;
+            border-radius: 3px;
+        }
+
+    }
+}
