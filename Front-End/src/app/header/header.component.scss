@@ -8,7 +8,7 @@
 nav
 {
     height: 100px;
-    background-color: #5E724E;
+    background-color:#7C9667;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -20,13 +20,14 @@ nav
 
         .logo-h4
         {
-            font-family: "Raleway Italic";
+            font-family: "Raleway";
             font-size: 25px;
-            font-weight: unset;
+            font-weight: bold;
             user-select: none;
             letter-spacing: 5px;
             text-transform: uppercase;
             cursor: pointer;
+            padding-left: 30px;
         }
     }
     ul

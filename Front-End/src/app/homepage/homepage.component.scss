@@ -5,48 +5,44 @@
     
 }
 
-.home-page 
-{
+.home-page {
     height: 82.6vh;
+    overflow: hidden;
     // width: 1310px;
     background-color: #F1F0ED;
 
-    .title-img-holder
-    {
-        display: grid;
-        
-        figure
-        {
-            position: absolute;
-            top: 100px;
-            left: 1303px;
-        }
-    }
-
     .title 
     {
+        position: absolute;
+        top: 16%;
+       
         display:grid;
         grid-auto-flow: row;
         flex-direction: column;
         padding-top: 200px;
-        padding-left: 400px;
+        padding-left: 392px;
+        user-select: none;
 
         h1
         {
             font-size: 48px;
+
+            span {
+                color: #7C9667;
+            }
         }
 
         h5
         {
             font-size: 16px;
             padding-bottom: 30px;
-            color: #5E724E;
+            color: #7C9667;
         }
 
         button
         {
             text-align: center;
-            background-color: #5E724E;
+            background-color:#7C9667;
             font-size: 18px;
             width: 280px;
             border: none;
@@ -55,4 +51,45 @@
         }
 
     }
+
+    .imgs{ 
+        display: flex;
+        user-select: none;
+        .overlay{
+            position: absolute;
+            width: 100%;
+            height: 82.5vh;
+            top: 100px;
+            left: 0;
+            right: 0;
+            bottom: 10px;
+            background-color: rgba(0,0,0,0.6); 
+        }
+
+        figure {
+            img {
+                height: 800px;
+                width: 600px;
+            }
+        }
+    }
 }
+
+
+
+
+
+
+
+
+// .title-img-holder
+//     {
+//         display: grid;
+        
+//         figure
+//         {
+//             position: absolute;
+//             top: 100px;
+//             left: 1303px;
+//         }
+//     }
