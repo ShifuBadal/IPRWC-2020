@@ -1,1 +1,24 @@
-<p>product-detail works!</p>
+<section class="holder">
+
+    <section class="title-image-holder">
+        <h1>Product Details</h1>
+        <img [src]="product.imagePath" alt="{{ product.name }}">
+    </section>
+
+    <section class="product-info">
+        <h2>{{ product.brand }}</h2>
+        <p>{{ product.name }}</p>
+
+        <section class="size-holder">
+            <h3>Size</h3>
+        </section>
+        
+        <section class="color-holder">
+            <h3>Color</h3>
+        </section>
+
+        <button>Add to basket</button>
+    </section>
+</section>
+
+

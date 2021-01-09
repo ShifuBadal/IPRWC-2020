@@ -1,6 +1,9 @@
+import { EventEmitter } from '@angular/core';
 import { Product } from './product.model';
 
 export class ProductService {
+    productSelected = new EventEmitter<Product>();
+
     private products: Product[] = [
         new Product('Triple S Sneaker', 'Balenciaga', '$477' , '/assets/images/balenciaga_shoe_tp.png'),
         new Product('Waterbury Watch', 'Timex', '$109,95' , '/assets/images/klok.png'),

@@ -11,6 +11,8 @@ import { ProductItemComponent } from './products/product-list/product-item/produ
 import { ProductService } from './products/product.service';
 import { HeaderComponent } from './header/header.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { LoginComponent } from './login/login.component';
+// import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -22,10 +24,12 @@ import { HomepageComponent } from './homepage/homepage.component';
     ProductListComponent,
     ProductItemComponent,
     HeaderComponent,
-    HomepageComponent
+    HomepageComponent,
+    LoginComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    // AppRoutingModule
   ],
   providers: [ ProductService ],
   bootstrap: [AppComponent]

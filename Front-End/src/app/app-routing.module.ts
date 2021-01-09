@@ -1,12 +1,13 @@
 // import { NgModule } from '@angular/core';
 // import {RouterModule, Routes} from '@angular/router';
+// import { HomepageComponent } from './homepage/homepage.component';
+// import { LoginComponent } from './login/login.component';
 
 
 // const appRoutes: Routes = [
-//   { path: '', redirectTo: '/bomen', pathMatch: 'full'}, // Temporary, remove if login is functionak
-//   { path: 'Home', component: TreeOverviewComponent },
-//   { path: 'Login', component: NotificationEditorComponent }
-//   // Add AccountsInfo page here
+//   { path: '', redirectTo: '/Home', pathMatch: 'full'},
+//   { path: 'Home', component: HomepageComponent },
+//   { path: 'Login', component: LoginComponent },
 // ];
 
 // @NgModule({

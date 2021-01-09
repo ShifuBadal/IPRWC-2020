@@ -2,4 +2,74 @@
 {
     margin: 0;
     padding: 0;
+    font-family: 'Raleway';
 }
+
+.holder {
+    display: flex;
+    flex-direction: row;
+
+    > .title-image-holder {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        top: 80px;
+        padding-left: 390px;
+    
+       > h1 {
+            font-size: 48px;
+        }
+    
+        > img {
+            width: 500px;
+            height: 700px;
+        }
+    }
+
+    > .product-info {
+        position: relative;
+        top:200px;
+        padding-left: 200px;
+        > h2 {
+            font-family: 'Raleway Italic';
+            font-size: 36px;
+            padding-bottom: 20px;
+            color: #707070;
+        }
+
+         > .size-holder {
+            display: flex;
+            flex-direction: row;
+            padding-top: 40px;
+
+            > h3 {
+                color: #707070;
+                font-size: 31px;
+            }
+        }
+
+        > .color-holder {
+            display: flex;
+            flex-direction: row;
+            padding-top: 40px;
+            padding-bottom: 40px;
+
+            > h3 {
+                color: #707070;
+                font-size: 31px;
+            }
+        }
+
+        button {
+            font-family: 'Raleway Italic';
+            color: #707070;
+            background-color: white;
+            font-size: 31px;
+            padding: 10px 10px 10px 10px;
+            border: 3px solid #7C9667;
+        }
+    }
+}
+
+
+
