@@ -1,24 +1,39 @@
 <section class="holder">
-
+    
     <section class="title-image-holder">
         <h1>Product Details</h1>
-        <img [src]="product.imagePath" alt="{{ product.name }}">
+        <h5>제품 세부 정보</h5>
+
     </section>
 
-    <section class="product-info">
-        <h2>{{ product.brand }}</h2>
-        <p>{{ product.name }}</p>
-
-        <section class="size-holder">
-            <h3>Size</h3>
+    <div class="image-info-holder">
+        <img [src]="product.imagePath" alt="{{ product.name }}">  
+        <section class="product-info">
+            <h2>{{ product.brand }}</h2>
+            <p>{{ product.name }}</p>
+    
+            <section class="size-holder">
+                <h3>Size</h3>
+                <div class="sizebutton-holder">
+                    <button class="size-button">39</button>
+                    <button class="size-button">40</button>
+                    <button class="size-button">41</button>
+                    <button class="size-button">42</button>
+                    <button class="size-button">43</button>
+                </div>
+            </section>
+            
+            <section class="color-holder">
+                <h3>Color</h3>
+                <div class="color-button-holder">
+                    <button class="black-color-button">00</button>
+                    <button class="white-color-button">00</button>
+                </div>
+            </section>
+    
+            <button class="basket-button">Add to basket</button>
         </section>
-        
-        <section class="color-holder">
-            <h3>Color</h3>
-        </section>
-
-        <button>Add to basket</button>
-    </section>
+    </div>
 </section>
 
 

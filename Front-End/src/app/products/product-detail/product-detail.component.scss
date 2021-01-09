@@ -1,3 +1,6 @@
+$base-green: #7C9667;
+$base-grey: #707070;
+
 *
 {
     margin: 0;
@@ -13,60 +16,130 @@
         display: flex;
         flex-direction: column;
         position: relative;
-        top: 80px;
-        padding-left: 390px;
+        top: 180px;
+        padding-left: 86px;
     
-       > h1 {
+        > h1 {
             font-size: 48px;
+            
         }
     
+        > h5 {
+            font-size: 18px;
+            padding-bottom: 50px;
+            color: $base-green;
+        }
+    }
+
+    > .image-info-holder {
+        display: flex;
+        flex-direction: row;
+        padding-top: 300px;
+
         > img {
             width: 500px;
             height: 700px;
         }
-    }
 
-    > .product-info {
-        position: relative;
-        top:200px;
-        padding-left: 200px;
-        > h2 {
-            font-family: 'Raleway Italic';
-            font-size: 36px;
-            padding-bottom: 20px;
-            color: #707070;
-        }
-
-         > .size-holder {
-            display: flex;
-            flex-direction: row;
-            padding-top: 40px;
-
-            > h3 {
-                color: #707070;
-                font-size: 31px;
+        > .product-info {
+            position: relative;
+            top:150px;
+            padding-left: 200px;
+            > h2 {
+                font-family: 'Raleway Italic';
+                font-size: 36px;
+                padding-bottom: 20px;
+                color: $base-grey;
             }
-        }
+    
+             > .size-holder {
+                display: flex;
+                flex-direction: row;
+                padding-top: 40px;
+    
+                > h3 {
+                    color: $base-grey;
+                    font-size: 31px;
+                }
 
-        > .color-holder {
-            display: flex;
-            flex-direction: row;
-            padding-top: 40px;
-            padding-bottom: 40px;
+                > .sizebutton-holder {
+                    padding-left: 30px;
+                    display: flex;
+                    flex-direction: row;
+                    gap: 10px;
 
-            > h3 {
-                color: #707070;
-                font-size: 31px;
+                    > .size-button {
+                        padding: 10px 10px 10px 10px;
+                        font-size: 18px;
+                        border-radius: 100px;
+                        background-color: white;
+                        border: 3px solid $base-grey;
+                        user-select: none;
+                    }
+
+                    > .size-button:focus {
+                        // padding: 10px 10px 10px 10px;
+                        // font-size: 18px;
+                        // border-radius: 100px;
+                        // background-color: white;
+                        outline: none;
+                        background-color: $base-green;
+                        color: white;
+                        border-radius: 100px;
+                        border: 3px solid $base-green;
+                    }
+                }
             }
-        }
+    
+            > .color-holder {
+                display: flex;
+                flex-direction: row;
+                padding-top: 40px;
+                padding-bottom: 40px;
+    
+                > h3 {
+                    color: $base-grey;
+                    font-size: 31px;
+                }
 
-        button {
-            font-family: 'Raleway Italic';
-            color: #707070;
-            background-color: white;
-            font-size: 31px;
-            padding: 10px 10px 10px 10px;
-            border: 3px solid #7C9667;
+                > .color-button-holder {
+                    padding-left: 30px;
+                    display: flex;
+                    flex-direction: row;
+                    gap: 10px;
+
+                    > .black-color-button, .white-color-button{ 
+                        padding: 10px 10px 10px 10px;
+                        font-size: 18px;
+                        border-radius: 100px;
+                    }
+
+                    > .black-color-button {
+                        background-color:black;
+                        border: 3px solid $base-grey;
+                    }
+
+                    > .white-color-button {
+                        background-color: white;
+                        border: 3px solid $base-grey;
+                        color: white;
+                    }
+
+                    > .black-color-button:focus, .white-color-button:focus{ 
+                        outline: none;
+                        border: 4px solid $base-green;
+                    }
+                }
+            }
+    
+            .basket-button {
+                font-family: 'Raleway Italic';
+                color: $base-grey;
+                background-color: white;
+                font-size: 31px;
+                padding: 10px 10px 10px 10px;
+                border: 3px solid $base-green;
+            }
         }
     }
 }
