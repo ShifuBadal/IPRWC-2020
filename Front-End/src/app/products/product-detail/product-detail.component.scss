@@ -108,7 +108,7 @@ $base-grey: #707070;
                     flex-direction: row;
                     gap: 10px;
 
-                    > .black-color-button, .white-color-button{
+                    > .black-color-button, .white-color-button, .red-color-button, .blue-color-button{
                         padding: 10px 10px 10px 10px;
                         font-size: 18px;
                         border-radius: 100px;
@@ -126,7 +126,16 @@ $base-grey: #707070;
                         border: 3px solid $base-grey;
                         color: white;
                     }
-
+                    > .red-color-button {
+                        background-color: red;
+                        border: 3px solid $base-grey;
+                        color: red;
+                    }
+                    > .blue-color-button {
+                        background-color: blue;
+                        border: 3px solid $base-grey;
+                        color: blue;
+                    }
                     > .color-button-clicked, .color-button-clicked{
                         outline: none;
                         border: 4px solid $base-green;
