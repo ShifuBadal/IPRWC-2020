@@ -1,4 +1,5 @@
 export class Product {
+    public id: number;
     public name: string;
     public brand: string;
     public price: string;
@@ -6,7 +7,8 @@ export class Product {
     public sizes: Array<number>;
     public colors: Array<string>;
 
-    constructor(name: string, brand: string, price: string, imagePath: string, sizes: Array<number>, colors: Array<string>) {
+    constructor(id: number, name: string, brand: string, price: string, imagePath: string, sizes: Array<number>, colors: Array<string>) {
+        this.id = id;
         this.name = name;
         this.brand = brand;
         this.price = price;

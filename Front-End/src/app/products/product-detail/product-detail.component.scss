@@ -17,7 +17,7 @@ $base-grey: #707070;
         display: flex;
         flex-direction: column;
         position: relative;
-        top: 180px;
+        top: 80px;
         padding-left: 86px;
 
         > h1 {
@@ -35,11 +35,11 @@ $base-grey: #707070;
     > .image-info-holder {
         display: flex;
         flex-direction: row;
-        padding-top: 300px;
+        padding-top: 150px;
 
         > img {
-            width: 500px;
-            height: 700px;
+            width: 400px;
+            height: 600px;
         }
 
         > .product-info {

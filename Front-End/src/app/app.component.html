@@ -1,18 +1,5 @@
-<!-- <div class="holder">
-  <app-products *ngIf = "loadedFeature === 'product'"></app-products>
-</div> -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Webshops</title>
-</head>
-<header>
+
   <app-header></app-header>
-</header>
-<body>
-  <app-homepage></app-homepage>
-  <app-products *ngIf = "loadedFeature === 'product'"></app-products>
-</body>
-</html>
+<!--  <app-homepage></app-homepage>-->
+<!--  <app-products *ngIf = "loadedFeature === 'product'"></app-products>-->
+  <router-outlet></router-outlet>

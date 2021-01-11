@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Product } from '../product.model';
+import {ActivatedRoute, Params} from '@angular/router';
+import {ProductService} from '../product.service';
+import {Subscription} from 'rxjs';
 // import { ProductService } from '../product.service';
 
 @Component({
@@ -9,7 +12,7 @@ import { Product } from '../product.model';
 })
 export class ProductDetailComponent implements OnInit {
 
-  @Input() product: Product;
+  product: Product;
   id: number;
 
   isSizeButtonClicked = false;
@@ -17,12 +20,15 @@ export class ProductDetailComponent implements OnInit {
   isColorButtonClicked = false;
   whatColorButtonClicked: string;
 
-  constructor() {}
+  constructor(private route: ActivatedRoute, private productService: ProductService) {}
 
 
 
   ngOnInit(): void {
-
+    this.route.params.subscribe((params: Params ) => {
+      this.id = +params.id;
+      this.product = this.productService.fetchById(this.id);
+    });
   }
 
   toggleColorBtns(color): void {

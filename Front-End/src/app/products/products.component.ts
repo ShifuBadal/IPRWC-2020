@@ -9,7 +9,7 @@ import { ProductService } from './product.service';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit, OnDestroy {
-  products = [];
+
   selectedProduct: Product;
   productSelectedSubscription = new Subscription();
   constructor(private productService: ProductService) { }

@@ -12,7 +12,8 @@ import { ProductService } from './products/product.service';
 import { HeaderComponent } from './header/header.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
-// import { AppRoutingModule } from './app-routing.module';
+import {RouterModule} from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -29,9 +30,10 @@ import { LoginComponent } from './login/login.component';
   ],
   imports: [
     BrowserModule,
-    // AppRoutingModule
+    RouterModule,
+    AppRoutingModule
   ],
   providers: [ ProductService ],
-  bootstrap: [AppComponent]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
