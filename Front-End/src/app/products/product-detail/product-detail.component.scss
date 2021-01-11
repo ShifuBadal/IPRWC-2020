@@ -1,3 +1,4 @@
+@import "../../../utilities/variables";
 $base-green: #7C9667;
 $base-grey: #707070;
 
@@ -27,7 +28,7 @@ $base-grey: #707070;
         > h5 {
             font-size: 18px;
             padding-bottom: 50px;
-            color: $base-green;
+            color: $main-black;
         }
     }
 
@@ -49,7 +50,7 @@ $base-grey: #707070;
                 font-family: 'Raleway Italic', sans-serif;
                 font-size: 36px;
                 padding-bottom: 20px;
-                color: $base-grey;
+                color: $product-details-grey;
             }
 
              > .size-holder {
@@ -58,7 +59,7 @@ $base-grey: #707070;
                 padding-top: 40px;
 
                 > h3 {
-                    color: $base-grey;
+                    color: $product-details-grey;
                     font-size: 31px;
                 }
 
@@ -73,7 +74,7 @@ $base-grey: #707070;
                         font-size: 18px;
                         border-radius: 100px;
                         background-color: white;
-                        border: 3px solid $base-grey;
+                        border: 3px solid $product-details-grey;
                         user-select: none;
                     }
 
@@ -83,10 +84,10 @@ $base-grey: #707070;
                         // border-radius: 100px;
                         // background-color: white;
                         outline: none;
-                        background-color: $base-green;
+                        background-color: $main-black;
                         color: white;
                         border-radius: 100px;
-                        border: 3px solid $base-green;
+                        border: 3px solid $main-black;
                     }
                 }
             }
@@ -98,7 +99,7 @@ $base-grey: #707070;
                 padding-bottom: 40px;
 
                 > h3 {
-                    color: $base-grey;
+                    color: $product-details-grey;
                     font-size: 31px;
                 }
 
@@ -117,39 +118,39 @@ $base-grey: #707070;
 
                     > .black-color-button {
                         background-color:black;
-                        border: 3px solid $base-grey;
+                        border: 3px solid $product-details-grey;
                         color: black;
                     }
 
                     > .white-color-button {
                         background-color: white;
-                        border: 3px solid $base-grey;
+                        border: 3px solid $product-details-grey;
                         color: white;
                     }
                     > .red-color-button {
                         background-color: red;
-                        border: 3px solid $base-grey;
+                        border: 3px solid $product-details-grey;
                         color: red;
                     }
                     > .blue-color-button {
                         background-color: blue;
-                        border: 3px solid $base-grey;
+                        border: 3px solid $product-details-grey;
                         color: blue;
                     }
                     > .color-button-clicked, .color-button-clicked{
                         outline: none;
-                        border: 4px solid $base-green;
+                        border: 4px solid $main-black;
                     }
                 }
             }
 
             .basket-button {
                 font-family: 'Raleway Italic', sans-serif;
-                color: $base-grey;
+                color: $product-details-grey;
                 background-color: white;
                 font-size: 31px;
                 padding: 10px 10px 10px 10px;
-                border: 3px solid $base-green;
+                border: 3px solid $main-black;
             }
         }
     }

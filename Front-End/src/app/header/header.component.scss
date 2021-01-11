@@ -1,19 +1,20 @@
+@import "../../utilities/variables";
 *
 {
     margin: 0;
     padding: 0;
-    
+
 }
 
 nav
 {
     height: 100px;
-    background-color:#7C9667;
+    background-color: $main-black;
     display: flex;
     justify-content: space-around;
     align-items: center;
     width: 100%;
-    
+
     .logo
     {
 
@@ -21,7 +22,8 @@ nav
 
         .logo-h4
         {
-            font-family: "Raleway";
+            font-family: "Raleway", sans-serif;
+            color: $text-color;
             font-size: 25px;
             font-weight: bold;
             user-select: none;
@@ -34,19 +36,19 @@ nav
     ul
     {
         display: flex;
-        justify-content: space-around; 
+        justify-content: space-around;
         width: 10%;
         text-decoration: none;
-        li 
+        li
         {
             list-style: none;
-            
-            a 
+
+            a
             {
                 font-size: 20px;
                 font-weight: bold;
-                font-family: "Raleway";
-                color: black;
+                font-family: "Raleway", sans-serif;
+                color: $text-color;
                 text-decoration: none;
             }
         }
@@ -62,7 +64,7 @@ nav
     .header-h1
     {
         font-weight: unset;
-        font-family: "Raleway Italic";
+        font-family: "Raleway Italic", sans-serif;
         font-size: 60px;
     }
 }

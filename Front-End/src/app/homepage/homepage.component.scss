@@ -1,15 +1,14 @@
-*
-{
+@import "../../utilities/variables";
+*{
     margin: 0;
     padding: 0;
-    
 }
 
 .home-page {
     height: 82.6vh;
     overflow: hidden;
     // width: 1310px;
-    background-color: #F1F0ED;
+    background-color: $grey-main;
 
     .title 
     {
@@ -26,9 +25,10 @@
         h1
         {
             font-size: 48px;
+            color: $text-color;
 
             span {
-                color: #7C9667;
+                color: $text-color;
             }
         }
 
@@ -36,16 +36,17 @@
         {
             font-size: 16px;
             padding-bottom: 30px;
-            color: #7C9667;
+            color: $text-color;
         }
 
         button
         {
             text-align: center;
-            background-color:#7C9667;
+            background-color: transparent;
+            color: $text-color;
             font-size: 18px;
             width: 280px;
-            border: none;
+            border: 3px solid $text-color;
             padding: 10px;
             border-radius: 3px;
         }
@@ -63,7 +64,7 @@
             left: 0;
             right: 0;
             bottom: 10px;
-            background-color: rgba(0,0,0,0.6); 
+            background-color: rgba(0,0,0,0.8); 
         }
 
         figure {
