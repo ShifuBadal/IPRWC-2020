@@ -1,6 +1,6 @@
 const JwtStrategy = require('passport-jwt').Strategy;
 const ExtractJwt = require('passport-jwt').ExtractJwt;
-const User = require('../models/user');
+const userController = require('../controllers/UserController');
 const dbconfig = require('../config/database');
 
 module.exports = function(passport) {
@@ -8,7 +8,7 @@ module.exports = function(passport) {
         jwtFromRequest: ExtractJwt.fromAuthHeaderWithScheme('jwt'),
         secretOrKey: dbconfig.secret
     }, function (jwt_payload, done) {
-        User.getUserById(jwt_payload.user._id, (err, user) => {
+        userController.getUserById(jwt_payload.user._id, (err, user) => {
             if (err) {
                 return done(err, false);
             }

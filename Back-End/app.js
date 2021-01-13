@@ -5,7 +5,7 @@ const cors = require('cors');
 const passport = require('passport');
 const mongoose = require('mongoose');
 const config = require('./config/database')
-
+const products = require('./routes/products');
 // Connect to db
 mongoose.connect(config.database, { useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -41,6 +41,8 @@ require('./config/passport')(passport);
 
 //User functionality
 app.use('/users', users)
+
+app.use('/products', products)
 
 //index route
 app.get('/', (req, res) => {
