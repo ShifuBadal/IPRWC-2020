@@ -20,10 +20,6 @@ const ProductSchema = mongoose.Schema({
         required: true
     },
     sizes: [{
-        type: String,
-        required: true
-    }],
-    colors: [{
         type: Number,
         required: true
     }]
