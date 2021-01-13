@@ -16,7 +16,12 @@ export class ProductListComponent implements OnInit {
               private dataStorageService: DataStorageService) { }
 
   ngOnInit(): void {
+    this.getProducts();
     this.products = this.productService.getProducts();
+    this.productService.treesChanged
+      .subscribe((products) => {
+        this.products = products;
+      });
     // this.postAProduct(); // Only use when all products are fucked in db
   }
 
@@ -29,5 +34,12 @@ export class ProductListComponent implements OnInit {
     this.dataStorageService.storeProduct('Swimming shorts', 'Daily Paper', '$70' , '/assets/images/dp_swimmingshorts_nobg.png', [39, 40, 41, 42]).subscribe((responsedata) => {console.log(responsedata);});
     this.dataStorageService.storeProduct('Big Ow Hoodie', 'Off-White', '$405' , '/assets/images/offwhite_hoodie_nobg.png', [39, 40, 41, 42]).subscribe((responsedata) => {console.log(responsedata);});
     this.dataStorageService.storeProduct('Regular Fit overhemd', 'Versace', '$995' , '/assets/images/versace_hemd_nobg.png', [39, 40, 41, 42]).subscribe((responsedata) => {console.log(responsedata);});
+  }
+
+  getProducts() {
+    this.dataStorageService.fetchProducts()
+        .then((productsFromDB) => {
+            this.productService.setTrees(productsFromDB);
+        });
   }
 }

@@ -36,5 +36,30 @@ export class GenericRequests {
         return this.http
             .post<any>(this.dbAddress + urlPath, body, {headers: { Authorization: authHeader }})
 			.pipe(catchError(GenericRequests.errorHandler));
-	}
+    }
+    
+    sendGetRequest(urlPath: string, tokenRequired: boolean): Observable<any> {
+        let authHeader = null;
+
+        // TODO: Authorization :)
+
+        const headers = new HttpHeaders({
+			Authorization: '',
+        });
+
+        // if (tokenRequired) {
+		// 	authHeader = 'Bearer ' + this.fetchToken();
+		// 	userId = this.dataStorageService.getActiveUser().getId().toString();
+
+		// 	options.headers = options.headers
+		// 		.set('Authorization', authHeader)
+		// 		.set('userID', userId);
+		// }
+        
+
+        const options = { headers: headers };
+        return this.http
+			.get<any>(this.dbAddress + urlPath, options)
+			.pipe(catchError(GenericRequests.errorHandler));
+    }
 }
