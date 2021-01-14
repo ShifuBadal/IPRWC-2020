@@ -21,13 +21,10 @@
                 </div>
             </section>
 
-            <!-- <section class="color-holder">
-                <h3>Color</h3>
-                <div class="color-button-holder">
-                    <button *ngFor="let color of product?.colors" (click)="toggleColorBtns(color)"
-                            class="{{ color === whatColorButtonClicked ? color+'-color-button color-button-clicked' : color+'-color-button' }}">00</button>
-                </div>
-            </section> -->
+            <section class="price-holder">
+                <h3>Price</h3>
+                <h3 class="price">{{ product.price }}</h3>
+            </section>
 
             <button class="basket-button">Add to basket</button>
         </section>

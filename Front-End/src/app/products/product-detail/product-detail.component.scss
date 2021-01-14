@@ -92,57 +92,27 @@ $base-grey: #707070;
                 }
             }
 
-            > .color-holder {
+            > .price-holder {
                 display: flex;
                 flex-direction: row;
+                width: 300px;
                 padding-top: 40px;
                 padding-bottom: 40px;
+
+                justify-content: space-between;
 
                 > h3 {
                     color: $product-details-grey;
                     font-size: 31px;
                 }
 
-                > .color-button-holder {
-                    padding-left: 30px;
-                    display: flex;
-                    flex-direction: row;
-                    gap: 10px;
-
-                    > .black-color-button, .white-color-button, .red-color-button, .blue-color-button{
-                        padding: 10px 10px 10px 10px;
-                        font-size: 18px;
-                        border-radius: 100px;
-                        user-select: none;
-                    }
-
-                    > .black-color-button {
-                        background-color:black;
-                        border: 3px solid $product-details-grey;
-                        color: black;
-                    }
-
-                    > .white-color-button {
-                        background-color: white;
-                        border: 3px solid $product-details-grey;
-                        color: white;
-                    }
-                    > .red-color-button {
-                        background-color: red;
-                        border: 3px solid $product-details-grey;
-                        color: red;
-                    }
-                    > .blue-color-button {
-                        background-color: blue;
-                        border: 3px solid $product-details-grey;
-                        color: blue;
-                    }
-                    > .color-button-clicked, .color-button-clicked{
-                        outline: none;
-                        border: 4px solid $main-black;
-                    }
+                > .price {
+                    color: black;
+                    font-weight: bold;
                 }
-            }
+                
+                }
+            
 
             .basket-button {
                 font-family: 'Raleway Italic', sans-serif;
