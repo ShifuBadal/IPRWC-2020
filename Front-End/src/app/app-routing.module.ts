@@ -4,6 +4,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
 import {ProductsComponent} from './products/products.component';
 import {ProductDetailComponent} from './products/product-detail/product-detail.component';
+import { WebcartComponent } from './webcart/webcart.component';
 
 
 const appRoutes: Routes = [
@@ -11,6 +12,7 @@ const appRoutes: Routes = [
   { path: 'home', component: HomepageComponent },
   { path: 'collection', component: ProductsComponent },
   { path: 'collection/product/:id', component: ProductDetailComponent },
+  { path: 'webcart', component: WebcartComponent },
   { path: 'login', component: LoginComponent },
 ];
 

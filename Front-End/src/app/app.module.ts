@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ProductsComponent } from './products/products.component';
@@ -17,6 +17,8 @@ import {RouterModule} from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { GenericRequests } from './services/generic-requests.service';
 import { DataStorageService } from './services/date-storage.service';
+import { WebcartComponent } from './webcart/webcart.component';
+import { WebcartItemComponent } from './webcart/webcart-item/webcart-item.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { DataStorageService } from './services/date-storage.service';
     ProductItemComponent,
     HeaderComponent,
     HomepageComponent,
-    LoginComponent
+    LoginComponent,
+    WebcartComponent,
+    WebcartItemComponent
   ],
   imports: [
     BrowserModule,
