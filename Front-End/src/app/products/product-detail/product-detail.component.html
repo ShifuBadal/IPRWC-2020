@@ -23,10 +23,10 @@
 
             <section class="price-holder">
                 <h3>Price</h3>
-                <h3 class="price">{{ product.price }}</h3>
+                <h3 class="price">$ {{ product.price }}</h3>
             </section>
 
-            <button class="basket-button">Add to basket</button>
+            <button [disabled]="whatSizeButtonClicked == null" (click)="sendToBasket()" class="basket-button">Add to basket</button>
         </section>
     </div>
 </section>

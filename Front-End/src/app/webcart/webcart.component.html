@@ -1,34 +1,31 @@
 <div class="content-holder">
     <div class="title-holder">
         <h1>Webcart</h1>
-        <button>Back to collection</button>
+        <button (click)="navigateToCollection()">Back to collection</button>
     </div> 
     <hr>
     <div class="web-item-holder">
-        <app-webcart-item></app-webcart-item>
-        <app-webcart-item></app-webcart-item>
-        <app-webcart-item></app-webcart-item>
-        <app-webcart-item></app-webcart-item>
-        <app-webcart-item></app-webcart-item>
+        <app-webcart-item *ngFor="let product of products"
+        [product] = "product"></app-webcart-item>
     </div>
     <hr>
     <div class="sum-up">
 
         <div class="total-articles-holder">
             <h5>Total articles </h5>
-            <h5>$500</h5>
+            <h5>$ {{ totalArticlesCosts }}</h5>
         </div>
         <div class="delivery-holder">
             <h5>Delivery </h5>
-            <h5>$0</h5>
+            <h5>$ {{ deliveryCosts }}</h5>
         </div>
         <div class="total-holder">
             <h5>Total </h5>
-            <h5>$500</h5>
+            <h5>$ {{ totalOverallCosts }}</h5>
         </div>      
     </div>
     <div class="button-holders">
-        <button>Empty basket</button>
+        <button (click)="emptyArray()">Empty basket</button>
         <button>Order now</button>
     </div>
 

@@ -3,16 +3,26 @@
         <img class="product-icon-img"  src="/assets/icons/basket-remove.png" alt="">
     </section>
     <div class="img-holder">
-        <img src="../../../assets/images/balenciaga_shoe_tp.png" alt="">
+        <img [src] = "product.imagePath" alt="">
     </div>   
     <div class="info-holder">
+
+        <div class="name-brand-holder">
+            <div class="brand-holder">
+                <h5>{{ product.brand }}</h5>
+            </div>
+            <div class="name-holder">
+                <h5>{{ product.name }}</h5>
+            </div>
+        </div>
+        
         <div class="size-holder">
             <h5>Size </h5>
-            <h5 class="size">39</h5>
+            <h5 class="size">{{ product.sizes }}</h5>
         </div>
         <div class="price-holder">
             <h5>Price </h5>
-            <h5 class="price">$477</h5>
+            <h5 class="price">${{ product.price }}</h5>
         </div>
         <div class="amount-holder">
             <h5>Amount </h5>

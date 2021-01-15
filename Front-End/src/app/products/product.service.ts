@@ -1,7 +1,8 @@
-import { EventEmitter } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Product } from './product.model';
 
+@Injectable()
 export class ProductService {
     productSelected = new EventEmitter<Product>();
     treesChanged = new Subject<Product[]>();

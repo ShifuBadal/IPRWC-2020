@@ -3,6 +3,7 @@ import { Product } from '../product.model';
 import {ActivatedRoute, Params} from '@angular/router';
 import {ProductService} from '../product.service';
 import {Subscription} from 'rxjs';
+import { WebcartService } from 'src/app/webcart/webcart.service';
 // import { ProductService } from '../product.service';
 
 @Component({
@@ -20,7 +21,9 @@ export class ProductDetailComponent implements OnInit {
   isColorButtonClicked = false;
   whatColorButtonClicked: string;
 
-  constructor(private route: ActivatedRoute, private productService: ProductService) {}
+  constructor(private route: ActivatedRoute, 
+              private productService: ProductService,
+              private webcartService: WebcartService) {}
 
 
 
@@ -33,14 +36,15 @@ export class ProductDetailComponent implements OnInit {
     });
   }
 
-  toggleColorBtns(color): void {
-    this.isColorButtonClicked = !this.isColorButtonClicked;
-    this.whatColorButtonClicked = color;
-    console.log(this.whatColorButtonClicked);
-  }
-
   toggleSizeBtns(size): void {
     this.isSizeButtonClicked = !this.isSizeButtonClicked; // Toggle for styling :D
     this.whatSizeButtonClicked = size; // Send this to winkelmandje ;)
   }
+
+  sendToBasket(): void {
+    let basketProduct = this.product
+    basketProduct.sizes = [this.whatSizeButtonClicked]
+    this.webcartService.setProduct(basketProduct);
+  }
+
 }

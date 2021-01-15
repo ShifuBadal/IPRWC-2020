@@ -15,7 +15,7 @@ export class DataStorageService{
     constructor(private genericRequests: GenericRequests,
                 private productService: ProductService) {}
 
-    storeProduct(name: String, brand: String, price: String, imagePath: String, sizes: [Number, Number, Number, Number]): Observable<String> {
+    storeProduct(name: String, brand: String, price: number, imagePath: String, sizes: [Number, Number, Number, Number]): Observable<String> {
         const body = {
             name,
             brand,
