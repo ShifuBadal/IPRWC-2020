@@ -1,7 +1,19 @@
-<h1>Collection</h1>
-<h5>의류 컬렉션</h5>
-<div class="card-grid">
-    <app-product-item *ngFor="let product of products"
-    [product] = "product"></app-product-item>
+
+<div class="content-holder">
+    <div class="title-button-holder">
+        <div class="title-holder">
+            <h1>Collection</h1>
+            <h5>의류 컬렉션</h5>
+        </div>
+        <button (click)="toWebCart()">To webcart</button>
+           
+    </div>
+    <hr>
+    <div class="card-grid">
+        <app-product-item *ngFor="let product of products"
+        [product] = "product"></app-product-item>
+    </div>
+    <hr>
 </div>
+
 

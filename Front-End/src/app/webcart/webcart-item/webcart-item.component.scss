@@ -18,7 +18,7 @@
         gap: 20px;
 
         .price-holder{
-            padding: 0 40px 0 20px;
+            padding: 0 20px 0 20px;
             display: flex;
             flex-direction: row;
             justify-content: space-between;
@@ -35,7 +35,8 @@
             display: flex;
             justify-content: center;
             flex-direction: column;
-            gap: 10px;
+            gap: 5px;
+
             .name-holder{
                 // padding: 0 47px 0 20px;
                 display: flex;
@@ -54,6 +55,7 @@
     
                 h5 {
                     font-size: 18px;
+                    font-weight: bold;
                 }
             }
         }
