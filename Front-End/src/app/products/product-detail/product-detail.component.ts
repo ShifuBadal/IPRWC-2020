@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Product } from '../product.model';
-import {ActivatedRoute, Params} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 import {ProductService} from '../product.service';
 import {Subscription} from 'rxjs';
 import { WebcartService } from 'src/app/webcart/webcart.service';
@@ -23,7 +23,8 @@ export class ProductDetailComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, 
               private productService: ProductService,
-              private webcartService: WebcartService) {}
+              private webcartService: WebcartService,
+              private router: Router) {}
 
 
 
@@ -45,6 +46,10 @@ export class ProductDetailComponent implements OnInit {
     let basketProduct = this.product
     basketProduct.sizes = [this.whatSizeButtonClicked]
     this.webcartService.setProduct(basketProduct);
+  }
+
+  toCollection(): void {
+    this.router.navigate(['/collection'])
   }
 
 }

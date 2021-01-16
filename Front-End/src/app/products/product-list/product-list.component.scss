@@ -19,6 +19,7 @@
     width: 1260px;
     justify-content: space-between;
     align-items: center;
+    padding-top: 100px;
 
     .title-holder {
       width: 1260px;
@@ -27,7 +28,7 @@
       justify-content: flex-start;
       h1 {
         font-size: 46px;
-        padding-top: 65px;
+        // padding-top: 65px;
       }
 
       h5 {

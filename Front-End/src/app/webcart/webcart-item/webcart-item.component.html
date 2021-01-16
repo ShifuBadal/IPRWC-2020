@@ -1,6 +1,6 @@
 <div class="webcart-card">
     <section class="product-icon-holder">
-        <img class="product-icon-img"  src="/assets/icons/basket-remove.png" alt="">
+        <img (click)="removeFromBasket()" class="product-icon-img"  src="/assets/icons/basket-remove.png" alt="">
     </section>
     <div class="img-holder">
         <img [src] = "product.imagePath" alt="">

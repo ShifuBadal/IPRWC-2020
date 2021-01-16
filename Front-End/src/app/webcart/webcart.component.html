@@ -5,7 +5,7 @@
     </div> 
     <hr>
     <div class="web-item-holder">
-        <app-webcart-item *ngFor="let product of products"
+        <app-webcart-item *ngFor="let product of products" (delete)="deleteProduct($event)"
         [product] = "product"></app-webcart-item>
     </div>
     <hr>

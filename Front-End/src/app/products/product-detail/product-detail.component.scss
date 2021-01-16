@@ -11,31 +11,55 @@ $base-grey: #707070;
 
 .holder {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
 
-    > .title-image-holder {
+    .title-button-holder {
         display: flex;
-        flex-direction: column;
-        position: relative;
-        top: 80px;
-        padding-left: 86px;
-
-        > h1 {
-            font-size: 48px;
-
+        flex-direction: row;
+        width: 1260px;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 100px ;
+        > .title-image-holder {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            width: 1260px;
+    
+            > h1 {
+                font-size: 48px;
+    
+            }
+    
+            > h5 {
+                font-size: 18px;
+                padding-bottom: 50px;
+                color: $main-black;
+            }
         }
 
-        > h5 {
-            font-size: 18px;
-            padding-bottom: 50px;
-            color: $main-black;
+        button {
+            background-color: transparent;
+                    border: 2px solid #ABA6A4;
+                    width: 200px;
+                    height: 50px;
+                    font-family: 'Raleway';
+                    color: black;
         }
     }
 
     > .image-info-holder {
         display: flex;
         flex-direction: row;
-        padding-top: 150px;
+        align-items: center;
+        width: 1260px;
+        gap: 300px;
+        padding-top: 10px;
+        padding-bottom: 100px;
 
         > img {
             width: 400px;
@@ -43,9 +67,7 @@ $base-grey: #707070;
         }
 
         > .product-info {
-            position: relative;
-            top:150px;
-            padding-left: 200px;
+            // padding-left: 200px;
             > h2 {
                 font-family: 'Raleway Italic', sans-serif;
                 font-size: 36px;
@@ -114,15 +136,23 @@ $base-grey: #707070;
                 }
             
 
-            .basket-button {
-                font-family: 'Raleway Italic', sans-serif;
-                color: $product-details-grey;
-                background-color: white;
-                font-size: 31px;
-                padding: 10px 10px 10px 10px;
-                border: 3px solid $main-black;
-            }
+                .basket-button {
+                    background-color: transparent;
+                    border: 2px solid #ABA6A4;
+                    width: 200px;
+                    height: 50px;
+                    font-family: 'Raleway';
+                    color: black;
+                }
         }
+    }
+
+    hr {
+        border: 0;
+        width: 1260px;
+        height: 1px;
+        background: #333;
+        background-image: linear-gradient(to right, #ccc, #333, #ccc);
     }
 }
 

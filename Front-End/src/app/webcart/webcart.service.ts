@@ -20,6 +20,13 @@ export class WebcartService {
         this.localStorageSave()
     }
 
+    setProducts(products: Product[]): void {
+        // this.localStorageRemove();
+        this.products = products;
+        this.productsObservable.next(products);
+
+    }
+
     remAllProducts(): void {
         this.localStorageRemove();
         this.products = [];

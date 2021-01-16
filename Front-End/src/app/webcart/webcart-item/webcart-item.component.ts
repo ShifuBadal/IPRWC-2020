@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Product } from 'src/app/products/product.model';
 
 @Component({
@@ -8,10 +8,16 @@ import { Product } from 'src/app/products/product.model';
 })
 export class WebcartItemComponent implements OnInit {
   @Input() product: Product;
+  @Output() delete: EventEmitter<Product> = new EventEmitter<Product>()
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  removeFromBasket(): void {
+    this.delete.emit(this.product);
+    console.log('Deletings')
   }
 
 }
