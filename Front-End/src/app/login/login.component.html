@@ -1,1 +1,9 @@
-<p>login works!</p>
+<div class="login-page-holder">
+    <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" ngModel required email>
+        <label for="password"></label>
+        <input type="password" id="password" name="password" ngModel required password>
+        <button type="submit">Inloggen</button>
+    </form>
+</div>

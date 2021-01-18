@@ -3,6 +3,7 @@ import { stringify } from "@angular/compiler/src/util";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
+import { User } from "src/shared/user.model";
 import { Product } from "../products/product.model";
 import { ProductService } from "../products/product.service";
 import { GenericRequests } from "./generic-requests.service";
@@ -10,6 +11,7 @@ import { GenericRequests } from "./generic-requests.service";
 
 @Injectable({providedIn: 'root'})
 export class DataStorageService{
+    private loggedUser: User = null;
     
 
     constructor(private genericRequests: GenericRequests,
@@ -41,5 +43,17 @@ export class DataStorageService{
         );
         return promise
     }
+
+    getActiveUser(): User {
+		return this.loggedUser;
+	}
+
+	setActiveUser(user: User): void {
+		this.loggedUser = user;
+	}
+
+	logOut(): void {
+	    this.loggedUser = null;
+  }
 
 }

@@ -19,6 +19,7 @@ import { GenericRequests } from './services/generic-requests.service';
 import { DataStorageService } from './services/date-storage.service';
 import { WebcartComponent } from './webcart/webcart.component';
 import { WebcartItemComponent } from './webcart/webcart-item/webcart-item.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { WebcartItemComponent } from './webcart/webcart-item/webcart-item.compon
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     RouterModule,
     HttpClientModule,
     AppRoutingModule

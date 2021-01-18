@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
+import { DataStorageService } from '../services/date-storage.service';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +11,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthService,
+		          private dataStorageService: DataStorageService,
+		          private router: Router) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  onSubmit(form: NgForm): void {
+    this.authService
+      .login(form.value.username, form.value.password)
+      .subscribe(() => {
+        if(this.dataStorageService.getActiveUser() !== null) {
+          this.router.navigate(['/collection'])
+            .catch(() => {
+              throw new Error('Could not navigate');
+            });
+        }
+      });
   }
 
 }
