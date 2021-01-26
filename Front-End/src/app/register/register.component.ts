@@ -20,19 +20,14 @@ export class RegisterComponent implements OnInit {
   // Email check in backend
   // Username check in backend
   // Repeat password check
-  // Post user on register click
+  // Post user on register click: Done
 
   onSubmit(form: NgForm): void {
-    // this.authService
-    //   .login(form.value.username, form.value.password)
-    //   .subscribe(() => {
-    //     if(this.dataStorageService.getActiveUser()) {
-    //       this.router.navigate(['/collection'])
-    //         .catch(() => {
-    //           throw new Error('Could not navigate');
-    //         });
-    //     }
-    //   });
+    this.authService
+      .register(form.value.name, form.value.email, form.value.username, form.value.password, 'user')
+      .subscribe((responseData) => {
+        console.log(responseData);
+      });
   }
 
   navigateToLogin(): void {

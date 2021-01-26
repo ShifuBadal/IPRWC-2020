@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { GenericRequests } from './generic-requests.service';
 import { DataStorageService } from './date-storage.service';
-import { tap } from 'rxjs/operators';
+import { map, tap } from 'rxjs/operators';
 import { User } from 'src/shared/user.model';
 
 export interface AuthResponseData {
@@ -41,8 +41,21 @@ export class AuthService {
     }));
   }
 
-  register() {
-    
+  register(name: string, email: string, username: string, password: string, role: string) {
+    const body = {
+      name, 
+      email,
+      username,
+      password,
+      role
+    }
+
+    return this.genericRequests.sendPostRequest('users/register', body, false)
+      .pipe(
+        map((responseData: {message: string}) => {
+          return responseData.message;
+        })
+      );
   }
 
   handleAuthentication(userData: AuthResponseData) {
