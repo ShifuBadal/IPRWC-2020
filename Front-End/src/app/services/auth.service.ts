@@ -21,8 +21,6 @@ export interface AuthResponseData {
 export class AuthService {
   authToken: any;
   
-
-
   constructor(private http: HttpClient,
               private genericRequests: GenericRequests,
               private dataStorageService: DataStorageService) {}
@@ -51,8 +49,7 @@ export class AuthService {
     }
 
     return this.genericRequests.sendPostRequest('users/register', body, false)
-      .pipe(
-        tap((responseData: {message: string, success: boolean}) => {
+      .pipe(tap((responseData: {message: string, success: boolean}) => {
           return responseData.message, responseData.success;
         })
       );

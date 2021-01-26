@@ -23,6 +23,8 @@ export class RegisterComponent implements OnInit {
   // Post user on register click: Done
   // Redirect to login if succeeded: Done
 
+  
+
   onSubmit(form: NgForm): void {
     this.authService
       .register(form.value.name, form.value.email, form.value.username, form.value.password, 'user')
