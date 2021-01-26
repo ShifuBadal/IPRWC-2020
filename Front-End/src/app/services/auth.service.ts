@@ -41,6 +41,10 @@ export class AuthService {
     }));
   }
 
+  register() {
+    
+  }
+
   handleAuthentication(userData: AuthResponseData) {
     this.dataStorageService.setActiveUser(userData.user)
   }

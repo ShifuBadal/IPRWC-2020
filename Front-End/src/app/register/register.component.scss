@@ -1,0 +1,101 @@
+* {
+    font-family: 'Raleway', sans-serif;
+}
+
+.register-page-holder {
+    font-family: 'Raleway';
+    height: auto;
+    min-height: 869px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #E7E7E7;
+
+    .registerForm {
+        display: flex;
+        flex-direction: column;
+        width: 571px;
+        height: 676px;
+        gap: 5px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 10px 10px 5px#ccc;
+
+        .title-holder {
+            background-color: #2F2F2F;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 133px;
+            width: 100%;
+            border-radius: 13px 13px 0 0;
+
+            h1 {
+                padding: 10px;
+                color: white;
+                user-select: none;
+            }
+        }
+
+        .position-input-holder {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            padding: 40px 58px 0 58px;
+
+            .username-input-holder, .password-input-holder, .email-input-holder, .repeat-password-input-holder, .name-input-holder {
+                display: flex;
+                flex-direction: column;
+                
+                label {
+                    font-size: 25px;
+                }
+
+                input {
+                    user-select: none;
+                    font-size: 18px;
+                    width: auto;
+                    height: auto;
+                    min-height: 35px;
+                    min-width: 454px;
+                    border: none;
+                    background-color: #F0F0F0;
+                    padding: 0 5px 0 5px;
+                }
+
+                input::placeholder {
+                    color: grey;
+                }
+            }          
+        }
+
+        .button-holder {
+            display: flex;
+            padding: 15px 50px 0 0px;
+            justify-content: flex-end;
+            gap: 15px;
+            .loginBtn, .registerBtn {
+                user-select: none;
+                font-size: 16px;
+                min-width: 84px;
+                // max-height: 39px;
+                border: none;
+                padding: 8px;
+                border: 1px solid #2F2F2F;
+                background: none;
+            }
+
+            .registerBtn {
+                background-color: #2F2F2F;
+                color: white;
+            }
+
+            .registerBtn:disabled {
+                background-color: white;
+                color: black;
+            }
+        }
+    }
+}

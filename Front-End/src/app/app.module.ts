@@ -20,6 +20,7 @@ import { WebcartComponent } from './webcart/webcart.component';
 import { WebcartItemComponent } from './webcart/webcart-item/webcart-item.component';
 import { FormsModule } from '@angular/forms';
 import { AdminportalComponent } from './adminportal/adminportal.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { AdminportalComponent } from './adminportal/adminportal.component';
     LoginComponent,
     WebcartComponent,
     WebcartItemComponent,
-    AdminportalComponent
+    AdminportalComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
