@@ -52,8 +52,8 @@ export class AuthService {
 
     return this.genericRequests.sendPostRequest('users/register', body, false)
       .pipe(
-        map((responseData: {message: string}) => {
-          return responseData.message;
+        tap((responseData: {message: string, success: boolean}) => {
+          return responseData.message, responseData.success;
         })
       );
   }
