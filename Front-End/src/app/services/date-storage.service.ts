@@ -45,6 +45,15 @@ export class DataStorageService{
         return promise
     }
 
+    // Use for username and password check
+    async fetchUsers(): Promise<any> {
+        const promise = await this.genericRequests.sendGetRequest('users', false).toPromise()
+        promise.map((users: User[]) => {
+            return users
+        });
+        return promise
+    }
+
     getRole(): string {
         return this.loggedUser.role;
     }

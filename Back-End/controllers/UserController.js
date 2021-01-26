@@ -37,6 +37,15 @@ exports.authenticateUser = (req, res, next) => {
     });
 }
 
+exports.fetchUsers = async (req, res, next) => {
+    try {
+        const users = await User.find({});
+        res.json(users);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+}
+
 exports.registerUser = (req, res, next) => {
     let newUser = new User({
         name: req.body.name,
