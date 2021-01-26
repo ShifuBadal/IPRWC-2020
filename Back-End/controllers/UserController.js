@@ -26,7 +26,8 @@ exports.authenticateUser = (req, res, next) => {
                     user: {
                         id: user.id,
                         name: user.username,
-                        email: user.email
+                        email: user.email,
+                        role: user.role
                     }
                 })
             } else {
@@ -41,7 +42,8 @@ exports.registerUser = (req, res, next) => {
         name: req.body.name,
         email: req.body.email,
         username: req.body.username,
-        password: req.body.password
+        password: req.body.password,
+        role: req.body.role
     });
 
     this.addUser(newUser, (err, user) => {

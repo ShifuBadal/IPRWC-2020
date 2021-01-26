@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { stringify } from "@angular/compiler/src/util";
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
+import { Observable, Subject } from "rxjs";
 import { map } from "rxjs/operators";
 import { User } from "src/shared/user.model";
 import { Product } from "../products/product.model";
@@ -12,6 +12,7 @@ import { GenericRequests } from "./generic-requests.service";
 @Injectable({providedIn: 'root'})
 export class DataStorageService{
     private loggedUser: User = null;
+    user = new Subject<User>();
     
 
     constructor(private genericRequests: GenericRequests,
@@ -44,12 +45,17 @@ export class DataStorageService{
         return promise
     }
 
+    getRole(): string {
+        return this.loggedUser.role;
+    }
+
     getActiveUser(): User {
 		return this.loggedUser;
 	}
 
 	setActiveUser(user: User): void {
-		this.loggedUser = user;
+        this.loggedUser = user;
+        this.user.next(user);
 	}
 
 	logOut(): void {

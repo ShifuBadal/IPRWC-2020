@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
     this.authService
       .login(form.value.username, form.value.password)
       .subscribe(() => {
-        if(this.dataStorageService.getActiveUser() !== null) {
+        if(this.dataStorageService.getActiveUser()) {
           this.router.navigate(['/collection'])
             .catch(() => {
               throw new Error('Could not navigate');

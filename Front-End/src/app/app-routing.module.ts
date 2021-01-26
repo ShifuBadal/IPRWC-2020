@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import {ProductsComponent} from './products/products.component';
 import {ProductDetailComponent} from './products/product-detail/product-detail.component';
 import { WebcartComponent } from './webcart/webcart.component';
+import { AdminportalComponent } from './adminportal/adminportal.component';
 
 
 const appRoutes: Routes = [
@@ -14,6 +15,7 @@ const appRoutes: Routes = [
   { path: 'collection/product/:id', component: ProductDetailComponent },
   { path: 'webcart', component: WebcartComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'adminportal', component: AdminportalComponent },
 ];
 
 @NgModule({

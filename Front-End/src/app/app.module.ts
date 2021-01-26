@@ -5,7 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { ProductsComponent } from './products/products.component';
 import { UserComponent } from './user/user.component';
-import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { ProductDetailComponent } from './products/product-detail/product-detail.component';
 import { ProductListComponent } from './products/product-list/product-list.component';
 import { ProductItemComponent } from './products/product-list/product-item/product-item.component';
@@ -20,13 +19,13 @@ import { DataStorageService } from './services/date-storage.service';
 import { WebcartComponent } from './webcart/webcart.component';
 import { WebcartItemComponent } from './webcart/webcart-item/webcart-item.component';
 import { FormsModule } from '@angular/forms';
+import { AdminportalComponent } from './adminportal/adminportal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductsComponent,
     UserComponent,
-    ShoppingCartComponent,
     ProductDetailComponent,
     ProductListComponent,
     ProductItemComponent,
@@ -34,7 +33,8 @@ import { FormsModule } from '@angular/forms';
     HomepageComponent,
     LoginComponent,
     WebcartComponent,
-    WebcartItemComponent
+    WebcartItemComponent,
+    AdminportalComponent
   ],
   imports: [
     BrowserModule,

@@ -1,9 +1,10 @@
 <div class="login-page-holder">
-    <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
+    <form class="loginForm" (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
+        <h1>Login</h1>
         <label for="username">Username</label>
-        <input type="text" id="username" name="username" ngModel required email>
-        <label for="password"></label>
+        <input type="text" id="username" name="username" ngModel required username>
+        <label for="password">Password</label>
         <input type="password" id="password" name="password" ngModel required password>
-        <button type="submit">Inloggen</button>
+        <button type="submit" [disabled]="!loginForm.valid">Inloggen</button>
     </form>
 </div>
