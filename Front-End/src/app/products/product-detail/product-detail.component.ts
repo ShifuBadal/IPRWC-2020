@@ -46,6 +46,7 @@ export class ProductDetailComponent implements OnInit {
     let basketProduct = this.product
     basketProduct.sizes = [this.whatSizeButtonClicked]
     this.webcartService.setProduct(basketProduct);
+    this.router.navigate(['/webcart'])
   }
 
   toCollection(): void {
