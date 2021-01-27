@@ -64,6 +64,52 @@ exports.registerUser = (req, res, next) => {
     });
 }
 
+exports.isEmailRegistered = (req, res, next) => {
+    let newUser = new User({
+        name: req.body.name,
+        email: req.body.email,
+        username: req.body.username,
+        password: req.body.password,
+        role: req.body.role
+    });
+
+    User.find({email: newUser.email}, function(err, doc) {
+
+        if(err){
+            res.json({success: false, msg: err});
+        }
+
+        if(doc.length){
+            res.json({success: false, msg: 'Email already exists'});
+        } else {
+            next();
+        }
+    });  
+}
+
+exports.isUsernameRegistered = (req, res, next) => {
+    let newUser = new User({
+        name: req.body.name,
+        email: req.body.email,
+        username: req.body.username,
+        password: req.body.password,
+        role: req.body.role
+    });
+
+    User.find({username: newUser.username}, function(err, doc) {
+
+        if(err){
+            res.json({success: false, msg: err});
+        }
+
+        if(doc.length){
+            res.json({success: false, msg: 'Username already exists'});
+        } else {
+            next();
+        }
+    }); 
+}
+
 exports.getProfile = (req, res, next) => {
     res.json({user: req.user});
 }
