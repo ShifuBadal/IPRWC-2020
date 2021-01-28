@@ -1,5 +1,5 @@
 <div class="register-page-holder">
-    <form class="registerForm" (ngSubmit)="onSubmit(registerForm)" #registerForm="ngForm">
+    <form class="registerForm" (ngSubmit)="onSubmit(registerForm)" #registerForm="ngForm" [mustMatch]="['password','repeat-password']">
         <div class="title-holder">
             <h1>SHIBAL'S SHOP</h1>    
         </div> 

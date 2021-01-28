@@ -21,6 +21,7 @@ import { WebcartItemComponent } from './webcart/webcart-item/webcart-item.compon
 import { FormsModule } from '@angular/forms';
 import { AdminportalComponent } from './adminportal/adminportal.component';
 import { RegisterComponent } from './register/register.component';
+import { MustMatchDirective } from '../shared/directives/must-match.directive';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { RegisterComponent } from './register/register.component';
     WebcartComponent,
     WebcartItemComponent,
     AdminportalComponent,
-    RegisterComponent
+    RegisterComponent,
+    MustMatchDirective
   ],
   imports: [
     BrowserModule,
