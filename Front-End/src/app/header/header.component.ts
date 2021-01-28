@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { User } from 'src/shared/user.model';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { User } from '../../shared/user.model';
 import { DataStorageService } from '../services/date-storage.service';
 
 @Component({
@@ -8,6 +8,8 @@ import { DataStorageService } from '../services/date-storage.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  @ViewChild('burger') burger: ElementRef;
+  isBurgerOpen: boolean;
 
   constructor(private dataStorageService: DataStorageService) { }
   user: User;
@@ -20,4 +22,12 @@ export class HeaderComponent implements OnInit {
     });
   }
 
+  navSlide(): void {
+    this.isBurgerOpen = !this.isBurgerOpen;
+    this.burger.nativeElement.classList.toggle('toggle');
+  }
+
+  closeNav(): void {
+    this.isBurgerOpen = !this.isBurgerOpen;
+  }
 }
