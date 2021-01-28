@@ -17,7 +17,8 @@
         display: flex;
         flex-direction: column;
         width: 571px;
-        height: 690px;
+        height: auto;
+        min-height: 690px;
         gap: 5px;
         background-color: white;
         border-radius: 10px;
@@ -73,7 +74,7 @@
 
         .button-holder {
             display: flex;
-            padding: 15px 50px 0 0px;
+            padding: 15px 50px 30px 0px;
             justify-content: flex-end;
             gap: 15px;
             .loginBtn, .registerBtn {

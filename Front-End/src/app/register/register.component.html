@@ -10,7 +10,11 @@
             </div>
             <div class="email-input-holder">
                 <label for="email">Email</label>
-                <input placeholder="Type email here!" type="text" id="email" name="email" ngModel required email>
+                <input placeholder="Type email here!" type="text" id="email" name="email" #email="ngModel" ngModel required email>
+                <div *ngIf="email.invalid" class="invalid-feedback">
+                    <div *ngIf="email.errors.email">Email must be a valid email address</div>
+                    <!-- <div>Password is required</div> -->
+                </div>
             </div>
             <div class="username-input-holder">
                 <label for="username">Username</label>
@@ -18,11 +22,19 @@
             </div>
             <div class="password-input-holder">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" ngModel required password>
+                <input type="password" id="password" name="password" #password="ngModel" ngModel required password minlength="6">
+                <div *ngIf="password.invalid" class="invalid-feedback">
+                    <div *ngIf="password.errors.minlength">Password must be atleast 6 characters</div>
+                    <!-- <div>Password is required</div> -->
+                </div>
             </div>
             <div class="repeat-password-input-holder">
                 <label for="repeat-password">Repeat password</label>
-                <input type="password" id="repeat-password" name="repeat-password" ngModel required password>
+                <input type="password" id="repeat-password" name="repeat-password" #confirmPassword="ngModel" ngModel required password>
+                <div *ngIf="confirmPassword.invalid" class="invalid-feedback">
+                    <!-- <div *ngIf="confirmPassword.errors.required">Confirm Password is required</div> -->
+                    <div *ngIf="confirmPassword.errors.mustMatch">Passwords must match</div>
+                </div>
             </div>
         </div>
         <div class="button-holder">
