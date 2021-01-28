@@ -6,11 +6,11 @@
         <div class="position-input-holder">
             <div class="name-input-holder">
                 <label for="name">Name</label>
-                <input placeholder="Type name here!" type="text" id="name" name="name" ngModel required username>
+                <input placeholder="Type your name here..." type="text" id="name" name="name" ngModel required username>
             </div>
             <div class="email-input-holder">
                 <label for="email">Email</label>
-                <input placeholder="Type email here!" type="text" id="email" name="email" #email="ngModel" ngModel required email>
+                <input placeholder="Type your email here..." type="text" id="email" name="email" #email="ngModel" ngModel required email>
                 <div *ngIf="email.invalid" class="invalid-feedback">
                     <div *ngIf="email.errors.email">Email must be a valid email address</div>
                     <!-- <div>Password is required</div> -->
@@ -18,7 +18,7 @@
             </div>
             <div class="username-input-holder">
                 <label for="username">Username</label>
-                <input placeholder="Type username here!" type="text" id="username" name="username" ngModel required username>
+                <input placeholder="Type a username here..." type="text" id="username" name="username" ngModel required username>
             </div>
             <div class="password-input-holder">
                 <label for="password">Password</label>
