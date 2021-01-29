@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Subject } from 'rxjs';
 import { User } from '../../shared/user.model';
 import { DataStorageService } from '../services/date-storage.service';
 
@@ -10,6 +11,7 @@ import { DataStorageService } from '../services/date-storage.service';
 export class HeaderComponent implements OnInit {
   @ViewChild('burger') burger: ElementRef;
   isBurgerOpen: boolean;
+  isTheNavOpen = new Subject<boolean>();
 
   constructor(private dataStorageService: DataStorageService) { }
   user: User;

@@ -1,17 +1,18 @@
-<div *ngIf="isBurgerOpen" class="overlay">
+<div *ngIf="isBurgerOpen" class="overlay" (click)="navSlide()">
     <ul>
         <li (click)="navSlide()" *ngIf="user && user.role === 'admin'"><a routerLink="/adminportal">Adminportal</a></li>
         <li (click)="navSlide()"><a routerLink="/home">Home</a></li>
         <li (click)="navSlide()"><a routerLink="/collection">Collection</a></li>
+        <li (click)="navSlide()"><a routerLink="/register">Register</a></li>
         <li (click)="navSlide()"><a routerLink="/help">Help</a></li>
     </ul>
-    <div class="register-in-nav">
+    <!-- <div class="register-in-nav">
         <div class="register-content-holder">
             <h1>Shibal's shop</h1>
             <h5>씨발의가게</h5>
             <button (click)="navSlide()" [routerLink]="['/register']" routerLinkActive="router-link-active" >Join us now!</button>
         </div>
-    </div>
+    </div> -->
 </div>
 <div class="burger" (click)="navSlide()" #burger>
     <div class="line1"></div>
@@ -28,7 +29,7 @@
         <li><a routerLink="/home">Home</a></li>
         <li><a routerLink="/collection">Collection</a></li> -->
         <li><a routerLink="/login">Login</a></li>
-        <li class="basket-holder"><a routerLink="/webcart">Webcart</a><!-- <h5>0</h5> --></li>
+        <li class="basket-holder"><a routerLink="/webcart">Cart</a><!-- <h5>0</h5> --></li>
     </ul>
 </nav>
 <!-- <section class="header-holder">
