@@ -2,6 +2,7 @@ const User = require('../models/user');
 const jwt = require('jsonwebtoken');
 const config = require('../config/database');
 const bcrypt = require('bcryptjs');
+const auth = require('../tokens/auth');
 
 exports.authenticateUser = (req, res, next) => {
     const username = req.body.username;
@@ -13,23 +14,21 @@ exports.authenticateUser = (req, res, next) => {
             return res.json({success: false, msg: 'User not found'})
         }
 
-        this.comparePassword(password, user.password, (err, isMatched) => {
+        this.comparePassword(password, user.password, async (err, isMatched) => {
             if(err) throw err;
             if(isMatched) {
-                const token = jwt.sign({user}, config.secret, {
-                    expiresIn: 10800
-                });
-
+                const [token, refreshToken] = await auth.createTokens(user, config.secret, config.secret2);
+                res.cookie('token', token, {maxAge: 60 * 60 * 24 * 7 * 1000, httpOnly: true});
+                res.cookie('refresh-token', refreshToken, {maxAge: 60 * 60 * 24 * 7 * 1000, httpOnly: true});
                 res.json({
                     success: true,
-                    token: 'JWT '+token,
                     user: {
                         id: user.id,
                         name: user.username,
                         email: user.email,
                         role: user.role
                     }
-                })
+                });
             } else {
                 return res.json({success: false, msg: 'Wrong password'})
             }

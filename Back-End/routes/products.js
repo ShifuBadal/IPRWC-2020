@@ -2,9 +2,10 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const productController = require('../controllers/ProductController');
+const isAuth = require('../middlewares/isAuth');
 
 // Fetch all products
-router.get('/', productController.fetchProducts);
+router.get('/', isAuth.isAuth, productController.fetchProducts);
 
 // Fetch product by id
 router.get('/:id', (req, res, next) => {

@@ -6,6 +6,7 @@ const passport = require('passport');
 const mongoose = require('mongoose');
 const config = require('./config/database')
 const products = require('./routes/products');
+const cookieParser = require('cookie-parser');
 // Connect to db
 mongoose.connect(config.database, { useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -24,7 +25,10 @@ const users = require('./routes/users')
 const port = 3000;
 
 //cors
-app.use(cors())
+app.use(cors({
+    origin:true,
+    credentials: true
+}));
 
 // Set static folder
 app.use(express.static(path.join(__dirname, 'public')));
@@ -32,6 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //body parser middleware
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
 
 //passport middleware
 app.use(passport.initialize());

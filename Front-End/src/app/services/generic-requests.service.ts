@@ -34,7 +34,7 @@ export class GenericRequests {
 		}
 
         return this.http
-            .post<any>(this.dbAddress + urlPath, body, {headers: { Authorization: authHeader }})
+            .post<any>(this.dbAddress + urlPath, body, {headers: { Authorization: authHeader }, withCredentials: true})
 			.pipe(catchError(GenericRequests.errorHandler));
     }
     
