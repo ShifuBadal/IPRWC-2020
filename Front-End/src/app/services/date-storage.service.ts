@@ -6,6 +6,7 @@ import { map } from "rxjs/operators";
 import { User } from "src/shared/user.model";
 import { Product } from "../products/product.model";
 import { ProductService } from "../products/product.service";
+import { AuthService } from "./auth.service";
 import { GenericRequests } from "./generic-requests.service";
 
 
@@ -65,10 +66,11 @@ export class DataStorageService{
 	setActiveUser(user: User): void {
         this.loggedUser = user;
         this.user.next(user);
-	}
-
-	logOut(): void {
-	    this.loggedUser = null;
-  }
+    }
+    
+    removeLoggedUser(): void {
+        this.loggedUser = null;
+        this.user.next(this.loggedUser);
+    }
 
 }

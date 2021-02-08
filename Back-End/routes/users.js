@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const passport = require('passport');
 const userController = require('../controllers/UserController');
 const isAuth = require('../middlewares/isAuth');
 
@@ -14,6 +13,12 @@ router.post('/authenticate', userController.authenticateUser);
 router.get('/profile', isAuth.isAuth, userController.getProfile);
 
 //Users
-router.get('/', userController.fetchUsers)
+router.get('/', userController.fetchUsers);
+
+//Verify user
+router.get('/verify', isAuth.isAuth, userController.verifyUser);
+
+//Logout user
+router.delete('/logout', isAuth.isAuth, userController.logOut);
 
 module.exports = router;

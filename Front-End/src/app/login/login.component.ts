@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
+import { User } from 'src/shared/user.model';
+import { AuthResponseData, AuthService } from '../services/auth.service';
 import { DataStorageService } from '../services/date-storage.service';
 
 @Component({
@@ -15,8 +16,20 @@ export class LoginComponent implements OnInit {
 		          private dataStorageService: DataStorageService,
 		          private router: Router) { }
 
-  ngOnInit(): void {}
-
+  ngOnInit(): void {
+    this.refreshLogin();
+  }
+  
+  refreshLogin(): void {
+    try{
+      this.authService.verifyUser().subscribe((user: AuthResponseData) => {
+        this.dataStorageService.setActiveUser(new User(user.id, user.name, user.username, user.email, user.role));
+        console.log('Rat', user);
+      });
+    } catch (err) {
+      this.router.navigate(['/login']);
+    } 
+  }
   onSubmit(form: NgForm): void {
     this.authService
       .login(form.value.username, form.value.password)

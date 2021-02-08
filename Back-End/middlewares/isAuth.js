@@ -9,7 +9,7 @@ module.exports.isAuth = async (req, res, next) => {
     refreshToken = req.cookies['refresh-token'];
 
     if(!token){
-        res.status(401).json({message: 'No token'})
+        return res.status(401).json({message: 'No token'})
     }
 
     try {
@@ -22,7 +22,7 @@ module.exports.isAuth = async (req, res, next) => {
             res.cookie('token', newTokens.token, { maxAge: 60 * 60 * 1000 , httpOnly: true});
             res.cookie('refresh-token', newTokens.refreshtoken, { maxAge: 60 * 60 * 1000 , httpOnly: true});
         } else {
-            res.status(401).json({message: 'jwt expired'});
+            return res.status(401).json({message: 'jwt expired'});
         }
         res.locals.user = newTokens.user
     }

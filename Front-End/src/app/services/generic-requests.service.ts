@@ -39,7 +39,7 @@ export class GenericRequests {
     }
     
     sendGetRequest(urlPath: string, tokenRequired: boolean): Observable<any> {
-        let authHeader = null;
+        let authHeader = '';
 
         // TODO: Authorization :)
 
@@ -47,19 +47,18 @@ export class GenericRequests {
 			Authorization: '',
         });
 
-        // if (tokenRequired) {
-		// 	authHeader = 'Bearer ' + this.fetchToken();
-		// 	userId = this.dataStorageService.getActiveUser().getId().toString();
-
-		// 	options.headers = options.headers
-		// 		.set('Authorization', authHeader)
-		// 		.set('userID', userId);
-		// }
-        
 
         const options = { headers: headers };
         return this.http
 			.get<any>(this.dbAddress + urlPath, options)
+			.pipe(catchError(GenericRequests.errorHandler));
+    }
+
+    sendDeleteRequest(urlPath: string): Observable<any> {
+        let authHeader = '';
+
+        return this.http
+			.delete<any>(this.dbAddress + urlPath, {headers: { Authorization: authHeader }, withCredentials: true})
 			.pipe(catchError(GenericRequests.errorHandler));
     }
 }

@@ -28,7 +28,10 @@
         <!-- <li *ngIf="user && user.role === 'admin'"><a routerLink="/adminportal">Adminportal</a></li>
         <li><a routerLink="/home">Home</a></li>
         <li><a routerLink="/collection">Collection</a></li> -->
-        <li><a routerLink="/login">Login</a></li>
+        <div>
+            <li *ngIf="!user"><a routerLink="/login">Login</a></li>
+            <li *ngIf="user" (click)="onLogoutClicked()"><a>Logout</a></li>
+        </div>
         <li class="basket-holder"><a routerLink="/webcart">Cart</a><!-- <h5>0</h5> --></li>
     </ul>
 </nav>

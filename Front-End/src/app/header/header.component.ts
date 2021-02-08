@@ -1,6 +1,8 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { User } from '../../shared/user.model';
+import { AuthService } from '../services/auth.service';
 import { DataStorageService } from '../services/date-storage.service';
 
 @Component({
@@ -13,7 +15,9 @@ export class HeaderComponent implements OnInit {
   isBurgerOpen: boolean;
   isTheNavOpen = new Subject<boolean>();
 
-  constructor(private dataStorageService: DataStorageService) { }
+  constructor(private authService: AuthService,
+              private dataStorageService: DataStorageService,
+              private router: Router) { }
   user: User;
 
   ngOnInit(): void {
@@ -31,5 +35,12 @@ export class HeaderComponent implements OnInit {
 
   closeNav(): void {
     this.isBurgerOpen = !this.isBurgerOpen;
+  }
+
+ onLogoutClicked(): void {
+    this.authService.logOut().subscribe(() => {
+      this.dataStorageService.removeLoggedUser();
+      this.router.navigate(['/home']);
+    });
   }
 }

@@ -4,6 +4,7 @@ import { GenericRequests } from './generic-requests.service';
 import { DataStorageService } from './date-storage.service';
 import { map, tap } from 'rxjs/operators';
 import { User } from 'src/shared/user.model';
+import { Observable } from 'rxjs';
 
 export interface AuthResponseData {
   id: number;
@@ -57,5 +58,13 @@ export class AuthService {
 
   handleAuthentication(userData: AuthResponseData) {
     this.dataStorageService.setActiveUser(userData.user)
+  }
+
+  verifyUser(): Observable<any> {
+    return this.genericRequests.sendGetRequest('users/verify', false);
+  }
+
+  logOut(): Observable<any> {
+    return this.genericRequests.sendDeleteRequest('users/logout');
   }
 }

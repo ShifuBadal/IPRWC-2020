@@ -139,3 +139,20 @@ exports.comparePassword = function(candidatePassword, hash, callback){
         callback(null, isMatched);
     });
 }
+
+exports.logOut = async (req, res) => {
+    res.clearCookie('token');
+    res.clearCookie('refresh-token');
+    res.status(200).json({message: 'Logged out successfully'})
+}
+
+exports.verifyUser = async (req, res) => {
+    const user = res.locals.user;
+    res.status(200).json({
+        id: user.id,
+        name: user.name,
+        username: user.username,
+        email: user.email,
+        role: user.role
+    });
+}

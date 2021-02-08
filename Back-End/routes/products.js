@@ -5,7 +5,7 @@ const productController = require('../controllers/ProductController');
 const isAuth = require('../middlewares/isAuth');
 
 // Fetch all products
-router.get('/', isAuth.isAuth, productController.fetchProducts);
+router.get('/',  productController.fetchProducts);
 
 // Fetch product by id
 router.get('/:id', (req, res, next) => {
