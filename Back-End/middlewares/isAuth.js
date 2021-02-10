@@ -14,8 +14,7 @@ module.exports.isAuth = async (req, res, next) => {
 
     try {
         const { user: { id } } = jwt.verify(token, config.secret);
-        const user = userController.getUserById(id);
-        req.user = user;
+        res.locals.user = await userController.getUserById(id);  
     } catch(err) {
         const newTokens = await auth.refreshTokens(token, refreshToken, config.secret, config.secret2);
         if(newTokens.token && newTokens.refreshToken) {
@@ -24,7 +23,8 @@ module.exports.isAuth = async (req, res, next) => {
         } else {
             return res.status(401).json({message: 'jwt expired'});
         }
-        res.locals.user = newTokens.user
+        console.log('LOCALLE ' + res.locals.user);
+        return res.locals.user = newTokens.user
     }
     next();
 };

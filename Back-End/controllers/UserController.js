@@ -118,8 +118,8 @@ exports.getUserByUsername = function(username, callback) {
     User.findOne(query, callback);
 }
 
-exports.getUserById = function(id, callback) {
-    User.findById(id, callback);
+exports.getUserById = function(id) {
+    return User.findById(id);
 }
 
 exports.addUser = function(newUser, callback) {
@@ -147,7 +147,8 @@ exports.logOut = async (req, res) => {
 }
 
 exports.verifyUser = async (req, res) => {
-    const user = res.locals.user;
+    const user = new User(res.locals.user);
+    console.log(user);
     res.status(200).json({
         id: user.id,
         name: user.name,
