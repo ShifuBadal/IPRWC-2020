@@ -13,27 +13,16 @@ import { DataStorageService } from '../services/date-storage.service';
 export class LoginComponent implements OnInit {
 
   constructor(private authService: AuthService,
-		          private dataStorageService: DataStorageService,
-		          private router: Router) { }
+              private dataStorageService: DataStorageService,
+              private router: Router) { }
 
-  ngOnInit(): void {
-    // this.refreshLogin();
-  }
+  ngOnInit(): void {}
 
-  refreshLogin(): void {
-    try{
-      this.authService.verifyUser().subscribe((user: AuthResponseData) => {
-        this.dataStorageService.setActiveUser(new User(user.id, user.name, user.username, user.email, user.role));
-      });
-    } catch (err) {
-      this.router.navigate(['/login']);
-    }
-  }
   onSubmit(form: NgForm): void {
     this.authService
       .login(form.value.username, form.value.password)
       .subscribe(() => {
-        if(this.dataStorageService.getActiveUser()) {
+        if (this.dataStorageService.getActiveUser()) {
           this.router.navigate(['/collection'])
             .catch(() => {
               throw new Error('Could not navigate');

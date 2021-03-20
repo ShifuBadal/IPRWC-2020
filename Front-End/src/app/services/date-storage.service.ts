@@ -56,10 +56,6 @@ export class DataStorageService{
         return promise;
     }
 
-    getRole(): string {
-        return this.loggedUser.role;
-    }
-
     getActiveUser(): User {
 		return this.loggedUser;
 	}

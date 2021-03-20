@@ -19,6 +19,6 @@ router.get('/', userController.fetchUsers);
 router.get('/verify', isAuth.isAuth, userController.verifyUser);
 
 //Logout user
-router.delete('/logout', isAuth.isAuth, userController.logOut);
+router.delete('/logout', userController.logOut);
 
 module.exports = router;

@@ -20,9 +20,8 @@ export class AppComponent implements OnInit {
 
   refreshLogin(): void {
     this.authService.verifyUser()
-      .subscribe((user) => {
-        this.dataStorageService.setActiveUser(user);
-        console.log(this.dataStorageService.getActiveUser());
+      .subscribe((responseData) => {
+        this.dataStorageService.setActiveUser(responseData.user);
       });
   }
 }

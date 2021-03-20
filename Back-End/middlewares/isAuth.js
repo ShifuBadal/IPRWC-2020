@@ -20,9 +20,14 @@ module.exports.isAuth = async (req, res, next) => {
         if(newTokens.token && newTokens.refreshToken) {
             res.cookie('token', newTokens.token, { maxAge: 60 * 60 * 1000 , httpOnly: true});
             res.cookie('refresh-token', newTokens.refreshToken, { maxAge: 60 * 60 * 24 * 7 * 2 * 1000 , httpOnly: true});
-            res.status(200).json({message:'Cookies set'})
+            res.status(200).json({message:'Cookies set', user: {
+                    name: newTokens.user.name,
+                    email: newTokens.user.email,
+                    username: newTokens.user.username,
+                    role: newTokens.user.role}
+            });
         } else {
-            return res.status(401).json({message: 'refresh jwt expired'});
+            return res.status(401).json({message: 'REFRESH TOKEN EXPIRED'});
         }
         return res.locals.user = newTokens.user
     }

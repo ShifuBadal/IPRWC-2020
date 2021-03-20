@@ -4,35 +4,33 @@ const config = require('../config/database');
 const bcrypt = require('bcryptjs');
 const auth = require('../tokens/auth');
 
-exports.authenticateUser = (req, res, next) => {
+exports.authenticateUser = async (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
 
-    this.getUserByUsername(username, (err, user) => {
-        if(err) throw err;
-        if(!user){
-            return res.json({success: false, msg: 'User not found'})
-        }
+    const user = await User.findOne({username: username})
+    if (!user) {
+        return res.json({success: false, msg: 'User not found'})
+    }
 
-        this.comparePassword(password, user.password, async (err, isMatched) => {
-            if(err) throw err;
-            if(isMatched) {
-                const [token, refreshToken] = await auth.createTokens(user, config.secret, config.secret2 + user.password);
-                res.cookie('token', token, {maxAge: 60 * 60 * 24 * 7 * 1000, httpOnly: true});
-                res.cookie('refresh-token', refreshToken, {maxAge: 60 * 60 * 24 * 7 * 1000, httpOnly: true});
-                res.json({
-                    success: true,
-                    user: {
-                        id: user.id,
-                        name: user.username,
-                        email: user.email,
-                        role: user.role
-                    }
-                });
-            } else {
-                return res.json({success: false, msg: 'Wrong password'})
-            }
-        })
+    bcrypt.compare(password, user.password, async (err, isMatched) => {
+        if(err) throw err;
+        if(isMatched) {
+            const [token, refreshToken] = await auth.createTokens(user, config.secret, config.secret2 + user.password);
+            res.cookie('token', token, {maxAge: 60 * 60 * 24 * 7 * 1000, httpOnly: true});
+            res.cookie('refresh-token', refreshToken, {maxAge: 60 * 60 * 24 * 7 * 1000, httpOnly: true});
+            res.json({
+                success: true,
+                user: {
+                    id: user.id,
+                    name: user.name,
+                    email: user.email,
+                    role: user.role
+                }
+            });
+        } else {
+            return res.json({success: false, msg: 'Wrong password'})
+        }
     });
 }
 
@@ -106,20 +104,11 @@ exports.isUsernameRegistered = (req, res, next) => {
         } else {
             next();
         }
-    }); 
+    });
 }
 
 exports.getProfile = (req, res, next) => {
     res.json({user: req.user});
-}
-
-exports.getUserByUsername = function(username, callback) {
-    const query = {username: username}
-    User.findOne(query, callback);
-}
-
-exports.getUserById = function(id) {
-    return User.findById(id);
 }
 
 exports.addUser = function(newUser, callback) {
@@ -130,13 +119,6 @@ exports.addUser = function(newUser, callback) {
             newUser.password = hash;
             newUser.save(callback);
         });
-    });
-}
-
-exports.comparePassword = function(candidatePassword, hash, callback){
-    bcrypt.compare(candidatePassword, hash, (err, isMatched) => {
-        if(err) throw err;
-        callback(null, isMatched);
     });
 }
 

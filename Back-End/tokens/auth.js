@@ -49,9 +49,7 @@ module.exports.refreshTokens = async (token, refreshToken, SECRET, SECRET2) => {
         return {}
     }
 
-    console.log(user)
     const refreshSecret = SECRET2 + user.password;
-    console.log(refreshSecret)
 
     try {
         jwt.verify(refreshToken, refreshSecret);

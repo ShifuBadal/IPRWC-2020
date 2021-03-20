@@ -9,10 +9,10 @@ import { Observable } from 'rxjs';
 export interface AuthResponseData {
   id: number;
   token: string;
-  name: string,
-  email: string,
-  username: string,
-  role: string,
+  name: string;
+  email: string;
+  username: string;
+  role: string;
   user: User;
 }
 
@@ -20,18 +20,17 @@ export interface AuthResponseData {
   providedIn: 'root'
 })
 export class AuthService {
-  authToken: any;
 
   constructor(private http: HttpClient,
               private genericRequests: GenericRequests,
               private dataStorageService: DataStorageService) {}
 
-  login(username: string, password: string) {
+  login(username: string, password: string): Observable<any> {
 
     const body: object = {
-      username: username,
-      password: password
-    }
+      username,
+      password
+    };
 
     return this.genericRequests.sendPostRequest('users/authenticate', body)
     .pipe(tap(responseData => {
@@ -40,7 +39,8 @@ export class AuthService {
     }));
   }
 
-  register(name: string, email: string, username: string, password: string, role: string) {
+  register(name: string, email: string, username: string, password: string, role: string):
+    Observable<{ message: string; success: boolean }> {
     const body = {
       name,
       email,
@@ -51,12 +51,12 @@ export class AuthService {
 
     return this.genericRequests.sendPostRequest('users/register', body)
       .pipe(tap((responseData: {message: string, success: boolean}) => {
-          return responseData.message, responseData.success;
+          return responseData;
         })
       );
   }
 
-  handleAuthentication(userData: AuthResponseData) {
+  handleAuthentication(userData: AuthResponseData): void {
     this.dataStorageService.setActiveUser(userData.user);
   }
 
