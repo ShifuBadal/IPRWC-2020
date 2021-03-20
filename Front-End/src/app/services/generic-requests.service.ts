@@ -1,8 +1,4 @@
-import {
-	HttpClient,
-	HttpErrorResponse,
-	HttpHeaders
-} from '@angular/common/http';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Data } from '@angular/router';
 import {Observable, throwError} from 'rxjs';
@@ -12,53 +8,25 @@ import { catchError } from 'rxjs/operators';
 export class GenericRequests {
     dbAddress = 'http://localhost:3000/';
 
-    constructor(private http: HttpClient,
-    ) {}
+    constructor(private http: HttpClient) {}
 
-    private static errorHandler(errorRes: HttpErrorResponse):Observable<any> {
-        let error = 'Error occured';
-
-        switch(errorRes.statusText) {
-            case 'Unauthorized':
-                error = 'Unauthorized';
-                break;
-        }
-        return throwError(error)
+    private generateHeader(): { headers: HttpHeaders; withCredentials: boolean} {
+      const headers = new HttpHeaders({
+        'Content-Type': 'application/json'
+      });
+      return {headers, withCredentials: true};
     }
-    
-    sendPostRequest(urlPath: string, body: unknown, tokenRequired: boolean): Observable<any> {
-    
-		let authHeader = '';
-		if (tokenRequired) {
-			authHeader = 'Bearer '/* + this.fetchToken();*/;
-		}
 
-        return this.http
-            .post<any>(this.dbAddress + urlPath, body, {headers: { Authorization: authHeader }, withCredentials: true})
-			.pipe(catchError(GenericRequests.errorHandler));
+    sendPostRequest(urlPath: string, body: unknown): Observable<any> {
+      return this.http
+        .post<any>(this.dbAddress + urlPath, body, this.generateHeader());
     }
-    
-    sendGetRequest(urlPath: string, tokenRequired: boolean): Observable<any> {
-        let authHeader = '';
 
-        // TODO: Authorization :)
-
-        const headers = new HttpHeaders({
-			Authorization: '',
-        });
-
-
-        const options = { headers: headers };
-        return this.http
-			.get<any>(this.dbAddress + urlPath, options)
-			.pipe(catchError(GenericRequests.errorHandler));
+    sendGetRequest(urlPath: string): Observable<any> {
+      return this.http.get<any>(this.dbAddress + urlPath, this.generateHeader());
     }
 
     sendDeleteRequest(urlPath: string): Observable<any> {
-        let authHeader = '';
-
-        return this.http
-			.delete<any>(this.dbAddress + urlPath, {headers: { Authorization: authHeader }, withCredentials: true})
-			.pipe(catchError(GenericRequests.errorHandler));
+        return this.http.delete<any>(this.dbAddress + urlPath, this.generateHeader());
     }
 }

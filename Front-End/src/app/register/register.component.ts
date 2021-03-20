@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  
+
   // Todo:
   // Email check in backend
   // Username check in backend
@@ -23,13 +23,12 @@ export class RegisterComponent implements OnInit {
   // Post user on register click: Done
   // Redirect to login if succeeded: Done
 
-  
+
 
   onSubmit(form: NgForm): void {
     this.authService
       .register(form.value.name, form.value.email, form.value.username, form.value.password, 'user')
       .subscribe((responseData) => {
-        console.log(responseData);
         if(responseData.success === true) {
           this.router.navigate(['/login'])
         } else {

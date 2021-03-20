@@ -20,14 +20,11 @@
     <div class="line3"></div>
 </div>
 <nav>
-    
+
     <div class="logo">
         <h4 class="logo-h4">Shibal's shop</h4>
     </div>
     <ul>
-        <!-- <li *ngIf="user && user.role === 'admin'"><a routerLink="/adminportal">Adminportal</a></li>
-        <li><a routerLink="/home">Home</a></li>
-        <li><a routerLink="/collection">Collection</a></li> -->
         <div>
             <li *ngIf="!user"><a routerLink="/login">Login</a></li>
             <li *ngIf="user" (click)="onLogoutClicked()"><a>Logout</a></li>

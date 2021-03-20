@@ -17,7 +17,7 @@ exports.authenticateUser = (req, res, next) => {
         this.comparePassword(password, user.password, async (err, isMatched) => {
             if(err) throw err;
             if(isMatched) {
-                const [token, refreshToken] = await auth.createTokens(user, config.secret, config.secret2);
+                const [token, refreshToken] = await auth.createTokens(user, config.secret, config.secret2 + user.password);
                 res.cookie('token', token, {maxAge: 60 * 60 * 24 * 7 * 1000, httpOnly: true});
                 res.cookie('refresh-token', refreshToken, {maxAge: 60 * 60 * 24 * 7 * 1000, httpOnly: true});
                 res.json({
@@ -148,7 +148,6 @@ exports.logOut = async (req, res) => {
 
 exports.verifyUser = async (req, res) => {
     const user = new User(res.locals.user);
-    console.log(user);
     res.status(200).json({
         id: user.id,
         name: user.name,

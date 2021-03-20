@@ -7,7 +7,7 @@ import {ProductDetailComponent} from './products/product-detail/product-detail.c
 import { WebcartComponent } from './webcart/webcart.component';
 import { AdminportalComponent } from './adminportal/adminportal.component';
 import { RegisterComponent } from './register/register.component';
-
+import { AuthGuard } from './services/guards/auth-guard';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -16,7 +16,7 @@ const appRoutes: Routes = [
   { path: 'collection/product/:id', component: ProductDetailComponent },
   { path: 'webcart', component: WebcartComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'adminportal', component: AdminportalComponent },
+  { path: 'adminportal', component: AdminportalComponent, canActivate: [AuthGuard]},
   { path: 'register', component: RegisterComponent },
 ];
 

@@ -17,18 +17,17 @@ export class LoginComponent implements OnInit {
 		          private router: Router) { }
 
   ngOnInit(): void {
-    this.refreshLogin();
+    // this.refreshLogin();
   }
-  
+
   refreshLogin(): void {
     try{
       this.authService.verifyUser().subscribe((user: AuthResponseData) => {
         this.dataStorageService.setActiveUser(new User(user.id, user.name, user.username, user.email, user.role));
-        console.log('Rat', user);
       });
     } catch (err) {
       this.router.navigate(['/login']);
-    } 
+    }
   }
   onSubmit(form: NgForm): void {
     this.authService

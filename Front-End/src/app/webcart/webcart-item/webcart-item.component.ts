@@ -17,7 +17,6 @@ export class WebcartItemComponent implements OnInit {
 
   removeFromBasket(): void {
     this.delete.emit(this.product);
-    console.log('Deletings')
   }
 
 }

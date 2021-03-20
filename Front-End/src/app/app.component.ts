@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataStorageService } from './services/date-storage.service';
+import {AuthService} from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -10,12 +11,18 @@ export class AppComponent implements OnInit {
   loadedFeature = 'product';
   title = 'Front-End';
 
-  constructor(private dataStorageService: DataStorageService){}
+  constructor(private dataStorageService: DataStorageService,
+              private authService: AuthService){}
 
   ngOnInit(): void {
+    this.refreshLogin();
   }
 
-  onNavigate(feature: string): void {
-    this.loadedFeature = feature;
+  refreshLogin(): void {
+    this.authService.verifyUser()
+      .subscribe((user) => {
+        this.dataStorageService.setActiveUser(user);
+        console.log(this.dataStorageService.getActiveUser());
+      });
   }
 }

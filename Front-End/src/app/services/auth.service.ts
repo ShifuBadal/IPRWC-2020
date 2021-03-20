@@ -21,7 +21,7 @@ export interface AuthResponseData {
 })
 export class AuthService {
   authToken: any;
-  
+
   constructor(private http: HttpClient,
               private genericRequests: GenericRequests,
               private dataStorageService: DataStorageService) {}
@@ -33,7 +33,7 @@ export class AuthService {
       password: password
     }
 
-    return this.genericRequests.sendPostRequest('users/authenticate', body, false)
+    return this.genericRequests.sendPostRequest('users/authenticate', body)
     .pipe(tap(responseData => {
       console.log(responseData);
       this.handleAuthentication(responseData);
@@ -42,14 +42,14 @@ export class AuthService {
 
   register(name: string, email: string, username: string, password: string, role: string) {
     const body = {
-      name, 
+      name,
       email,
       username,
       password,
       role
-    }
+    };
 
-    return this.genericRequests.sendPostRequest('users/register', body, false)
+    return this.genericRequests.sendPostRequest('users/register', body)
       .pipe(tap((responseData: {message: string, success: boolean}) => {
           return responseData.message, responseData.success;
         })
@@ -57,11 +57,11 @@ export class AuthService {
   }
 
   handleAuthentication(userData: AuthResponseData) {
-    this.dataStorageService.setActiveUser(userData.user)
+    this.dataStorageService.setActiveUser(userData.user);
   }
 
   verifyUser(): Observable<any> {
-    return this.genericRequests.sendGetRequest('users/verify', false);
+    return this.genericRequests.sendGetRequest('users/verify');
   }
 
   logOut(): Observable<any> {

@@ -11,7 +11,6 @@ router.get('/',  productController.fetchProducts);
 router.get('/:id', (req, res, next) => {
     
 })
-
 // Create one product
 router.post('/create', productController.createProduct);
 

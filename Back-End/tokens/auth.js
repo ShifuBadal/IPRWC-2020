@@ -2,13 +2,15 @@
 const _ = require('lodash');
 const User = require('../models/user');
 const jwt = require('jsonwebtoken');
-const dbconfig = require('../config/database');
+require('dotenv').config()
+// const dbconfig = require('../config/database');
 // const User = require('../models/user');
 
 module.exports.createTokens = async (user, secret, secret2) => {
+    user = JSON.parse(JSON.stringify(user))
     const createToken = jwt.sign(
         {
-            user:_.pick(user, ['id', 'email'])
+            user:_.pick(user, ['id'])
         },
         secret,
         {
@@ -22,16 +24,15 @@ module.exports.createTokens = async (user, secret, secret2) => {
         },
         secret2,
         {
-            expiresIn: '7d',
+            expiresIn: '14d',
         },
     );
 
     return Promise.all([createToken, createRefreshToken]);
 };
 
-module.exports.refreshTokens = async (token, refreshToken, secret, secret2) => {
-    let userId; 
-
+module.exports.refreshTokens = async (token, refreshToken, SECRET, SECRET2) => {
+    let userId = -1;
     try {
         const { user: { id } } = jwt.decode(refreshToken);
         userId = id;
@@ -43,21 +44,22 @@ module.exports.refreshTokens = async (token, refreshToken, secret, secret2) => {
         return {}
     }
 
-    const user = User.findById(userId);
-
+    const user = await User.findById(userId);
     if(!user){
         return {}
     }
 
-    const refreshSecret = secret2 + user.password;
+    console.log(user)
+    const refreshSecret = SECRET2 + user.password;
+    console.log(refreshSecret)
 
     try {
         jwt.verify(refreshToken, refreshSecret);
     } catch (err) {
+        console.log(err)
         return {}
     }
-
-    const [newToken, newRefreshToken] = await this.createTokens(user, secret, refreshSecret);
+    const [newToken, newRefreshToken] = await this.createTokens(user, SECRET, refreshSecret);
     return {
         token: newToken,
         refreshToken: newRefreshToken,
