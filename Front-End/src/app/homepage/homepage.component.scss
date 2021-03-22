@@ -2,95 +2,116 @@
 *{
     margin: 0;
     padding: 0;
+    font-family: "Raleway", sans-serif  ;
+
+}
+a {
+  color: black;
 }
 
-.home-page {
-    height: 82.6vh;
-    overflow: hidden;
-    // width: 1310px;
-    background-color: $grey-main;
+.home-page{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-image: url('../../assets/images/homepagebg.jpg');
+}
 
-    .title 
-    {
-        position: absolute;
-        top: 16%;
-       
-        display:grid;
-        grid-auto-flow: row;
-        flex-direction: column;
-        padding-top: 150px;
-        padding-left: 245px;
-        user-select: none;
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin: 0 auto;
+  height: 100%;
+  width: 74%;
 
-        h1
-        {
-            font-size: 48px;
-            color: $text-color;
+  .title{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 
-            span {
-                color: $text-color;
-            }
-        }
+    h1{
+      font-size: 30px;
+    }
+    h5{
+      font-size: 20px;
+    }
+  }
 
-        h5
-        {
-            font-size: 16px;
-            padding-bottom: 30px;
-            color: $text-color;
-        }
+  .slide-holder {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
 
-        button
-        {
-            text-align: center;
-            background-color: transparent;
-            color: $text-color;
-            font-size: 18px;
-            width: 280px;
-            border: 3px solid $text-color;
-            padding: 10px;
-            border-radius: 3px;
-        }
+    .slides {
+      display: flex;
+      //justify-content: center;
+      padding-top: 10px;
+
+      .slide > img {
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        border-radius: 5px;
+      }
 
     }
 
-    .imgs{ 
-        display: flex;
-        user-select: none;
-        .overlay{
-            position: absolute;
-            width: 100%;
-            height: 82.5vh;
-            top: 100px;
-            left: 0;
-            right: 0;
-            bottom: 10px;
-            background-color: rgba(0,0,0,0.7); 
-        }
 
-        figure {
-            img {
-                height: 800px;
-                width: 600px;
-            }
-        }
-    }
+  }
 }
 
+button {
+  background-color: transparent;
+  border: 2px solid #ABA6A4;
+  width: 200px;
+  height: 50px;
+  font-family: 'Raleway';
+  color: black;
+}
 
+//.prev-holder, .next-holder{
+//  display: flex;
+//  align-items: center;
+//  gap: 10px;
+//}
+//
+//.prev-holder{
+//  padding-right: 15px;
+//}
+//
+//.next-holder{
+//  padding-left: 15px;
+//}
+//.slide-controls {
+//  width: 100%;
+//  font-size: 30px;
+//  position: absolute;
+//  top: 50%;
+//  left: 26%;
+//  display: flex;
+//  justify-content: space-evenly;
+//
+//  .text {
+//    font-weight: bold;
+//    font-size:20px;
+//  }
+//}
 
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
 
+.active {
+  background-color: #717171;
+}
 
-
-
-
-// .title-img-holder
-//     {
-//         display: grid;
-        
-//         figure
-//         {
-//             position: absolute;
-//             top: 100px;
-//             left: 1303px;
-//         }
-//     }
+img {
+  width: 550px;
+  height: 750px;
+}

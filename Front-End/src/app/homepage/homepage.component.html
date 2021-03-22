@@ -1,17 +1,47 @@
 <section class="home-page">
-  <div class="imgs">
-    <div class="overlay"></div>  
-    <figure><img src="../assets/images/potentialhomepic.jpg" alt="Model"></figure>
-    <figure><img src="../assets/images/secondModel.jpg" alt="Model"></figure>
-    <figure><img src="../assets/images/thirdModel.jpg" alt="Model"></figure>
-    <figure><img src="../assets/images/fourthModel.jpg" alt="Model"></figure> 
-</div>
-  <section *ngIf="" class="title">
-    <h1>Shibal<span>'shop</span></h1>
-    <h5>씨발의가게</h5>
-    <button (click)="toCollection()">Browse collection now!</button>
-  </section>
+  <div class="container">
+
+    <div class="title">
+      <h1>SHIBAL'S SHOP</h1>
+      <h5>If you like what you see feel free to browse our collection!</h5>
+      <button (click)="toCollection()">Browse Collection</button>
+    </div>
+
+    <div class="slide-holder">
+      <div class="slides" id="slides">
+
+        <div class="slide">
+          <img src="../assets/images/models/girl-model-11.jpg" alt="Model">
+        </div>
+
+        <div class="slide">
+          <img src="../assets/images/models/girl-model-2.jpg" alt="Model">
+        </div>
+
+        <div class="slide">
+          <img src="../assets/images/models/girl-model-3.jpg" alt="Model">
+        </div>
+
+        <div class="slide">
+          <img src="../assets/images/models/girl-model-4.jpg" alt="Model">
+        </div>
+
+        <div class="slide">
+          <img src="../assets/images/models/girl-model-5.jpg" alt="Model">
+        </div>
+
+      </div>
+      <div style="text-align:center">
+        <span class="dot" (click)="currentSlide(1)"></span>
+        <span class="dot" (click)="currentSlide(2)"></span>
+        <span class="dot" (click)="currentSlide(3)"></span>
+        <span class="dot" (click)="currentSlide(4)"></span>
+        <span class="dot" (click)="currentSlide(5)"></span>
+      </div>
+
+    </div>
+
+  </div>
 </section>
 
 
-  
