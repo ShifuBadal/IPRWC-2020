@@ -36,6 +36,9 @@ const OrderSchema = mongoose.Schema({
             }
         }],
         required: true
+    },
+    status: {
+        type: String
     }
 });
 
@@ -47,4 +50,4 @@ OrderSchema.set('toJSON', {
     virtuals: true
 });
 
-const order = module.exports = mongoose.model('Order', OrderSchema);
+const Order = module.exports = mongoose.model('Order', OrderSchema);

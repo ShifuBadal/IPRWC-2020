@@ -22,7 +22,7 @@ exports.createProduct = (req, res, next) => {
 
     this.addProduct(newProduct, (err, product) => {
         if(err) {
-            res.json({success: false, msg: 'Failed to create product'});
+            res.json({success: false, msg: err.message});
         } else {
             res.json({success: true, msg: 'Successfully created product'});
         }

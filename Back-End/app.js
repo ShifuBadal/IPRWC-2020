@@ -6,6 +6,7 @@ const passport = require('passport');
 const mongoose = require('mongoose');
 const config = require('./config/database')
 const products = require('./routes/products');
+const orders = require('./routes/orders');
 const cookieParser = require('cookie-parser');
 // Connect to db
 mongoose.connect(config.database, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -46,8 +47,9 @@ require('./config/passport')(passport);
 
 //User functionality
 app.use('/users', users)
-
+app.use('/orders', orders);
 app.use('/products', products)
+
 
 //index route
 app.get('/', (req, res) => {
