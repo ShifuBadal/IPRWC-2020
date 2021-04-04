@@ -10,9 +10,9 @@ export class GenericRequests {
 
     constructor(private http: HttpClient) {}
 
-    private generateHeader(): { headers: HttpHeaders; withCredentials: boolean} {
+    private generateHeader(): { headers: HttpHeaders; withCredentials: boolean;} {
       const headers = new HttpHeaders({
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       });
       return {headers, withCredentials: true};
     }

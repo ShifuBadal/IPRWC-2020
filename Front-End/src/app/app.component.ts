@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataStorageService } from './services/date-storage.service';
 import {AuthService} from './services/auth.service';
+import {User} from "../shared/user.model";
 
 @Component({
   selector: 'app-root',
@@ -21,7 +22,8 @@ export class AppComponent implements OnInit {
   refreshLogin(): void {
     this.authService.verifyUser()
       .subscribe((responseData) => {
-        this.dataStorageService.setActiveUser(responseData.user);
+        const user = new User(responseData.name, responseData.email, responseData.username, responseData.role);
+        this.dataStorageService.setActiveUser(user);
       });
   }
 }

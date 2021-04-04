@@ -22,6 +22,8 @@ import { FormsModule } from '@angular/forms';
 import { AdminportalComponent } from './adminportal/adminportal.component';
 import { RegisterComponent } from './register/register.component';
 import { MustMatchDirective } from '../shared/directives/must-match.directive';
+import { ManageProductComponent } from './adminportal/manage-product/manage-product.component';
+import { ManageUserComponent } from './adminportal/manage-user/manage-user.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { MustMatchDirective } from '../shared/directives/must-match.directive';
     WebcartItemComponent,
     AdminportalComponent,
     RegisterComponent,
-    MustMatchDirective
+    MustMatchDirective,
+    ManageProductComponent,
+    ManageUserComponent
   ],
   imports: [
     BrowserModule,
