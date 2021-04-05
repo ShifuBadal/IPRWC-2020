@@ -5,7 +5,7 @@ import { Product } from './product.model';
 @Injectable()
 export class ProductService {
     productSelected = new EventEmitter<Product>();
-    treesChanged = new Subject<Product[]>();
+    productsChanged = new Subject<Product[]>();
     private products: Product[] = [];
 
 
@@ -13,12 +13,12 @@ export class ProductService {
         return this.products.slice();
     }
 
-    fetchById(id: Number): Product {
+    fetchById(id: number): Product {
       return this.products.find(x => x.id === id);
     }
 
-    setTrees(products: Product[]): void {
+    setProducts(products: Product[]): void {
         this.products = products;
-        this.treesChanged.next(this.products)
-	}
+        this.productsChanged.next(this.products);
+	  }
 }

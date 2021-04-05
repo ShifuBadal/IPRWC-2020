@@ -20,7 +20,7 @@ export class ProductListComponent implements OnInit {
   ngOnInit(): void {
     this.getProducts();
     this.products = this.productService.getProducts();
-    this.productService.treesChanged
+    this.productService.productsChanged
       .subscribe((products) => {
         this.products = products;
       });
@@ -41,7 +41,7 @@ export class ProductListComponent implements OnInit {
   getProducts() {
     this.dataStorageService.fetchProducts()
         .then((productsFromDB) => {
-            this.productService.setTrees(productsFromDB);
+            this.productService.setProducts(productsFromDB);
         });
   }
 

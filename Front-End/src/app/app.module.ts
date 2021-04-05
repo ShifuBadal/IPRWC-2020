@@ -24,6 +24,8 @@ import { RegisterComponent } from './register/register.component';
 import { MustMatchDirective } from '../shared/directives/must-match.directive';
 import { ManageProductComponent } from './adminportal/manage-product/manage-product.component';
 import { ManageUserComponent } from './adminportal/manage-user/manage-user.component';
+import { ManageableProductListComponent } from './adminportal/manage-product/manageable-product-list/manageable-product-list.component';
+import { ManageableProductComponent } from './adminportal/manage-product/manageable-product-list/manageable-product/manageable-product.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { ManageUserComponent } from './adminportal/manage-user/manage-user.compo
     RegisterComponent,
     MustMatchDirective,
     ManageProductComponent,
-    ManageUserComponent
+    ManageUserComponent,
+    ManageableProductListComponent,
+    ManageableProductComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,9 @@
+<section class="list">
+  <div class="title-rows">
+    <h1>ID</h1>
+    <h1>Name</h1>
+    <h1>Price</h1>
+  </div>
+  <app-manageable-product *ngFor="let product of products" [product] = "product"></app-manageable-product>
+</section>
+

@@ -1,0 +1,11 @@
+<section class="card">
+  <section class="content">
+    <h1 class="pId">{{ product?.id | slice: 0:10 }}</h1>
+    <h1 class="pName">{{ product?.name }}</h1>
+    <h1 class="pPrice">${{ product?.price}}</h1>
+  </section>
+  <section class="button-holder">
+    <img src="./assets/icons/edit-icon.png" alt="edit icon">
+    <img src="./assets/icons/trash-icon.png" alt="trash icon">
+  </section>
+</section>

@@ -1,0 +1,30 @@
+.card{
+  height: 50px;
+  background-color: #E7E7E7;
+  display: flex;
+  align-items: center;
+
+}
+.button-holder{
+  display: flex;
+  gap: 20px;
+  padding-right: 15px;
+}
+.content{
+  display: flex;
+  gap: 30px;
+  flex: 3 0  auto;
+  padding-left: 15px;
+  h1{
+    font-size: 18px;
+  }
+
+  .pName {
+    flex-grow: 2  ;
+    flex-basis: 0%;
+  }
+  .pPrice {
+    flex: 4 0 auto;
+  }
+
+}

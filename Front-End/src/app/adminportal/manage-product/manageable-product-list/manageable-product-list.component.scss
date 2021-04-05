@@ -1,0 +1,20 @@
+.title-rows{
+  display: flex;
+  flex-direction: row;
+  padding-left: 60px;
+  gap: 71px;
+
+  h1{
+    font-size: 18px;
+  }
+
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 10px 0 10px;
+  gap: 5px;
+}
+
+

@@ -5,10 +5,11 @@
 .content-holder{
   font-family: "Raleway", sans-serif;
   width: 600px;
-  height: 700px;
+  min-height: 700px;
+  height: auto;
   border-radius: 5px;
   background-color: white;
-
+  padding-bottom: 15px;
   .title-holder{
     display: flex;
     justify-content: center;
@@ -21,4 +22,17 @@
       color: white;
     }
   }
+
+  .button-holder{
+    padding: 10px 0 0 10px;
+  }
+}
+
+button {
+  background-color: transparent;
+  border: 2px solid #ABA6A4;
+  width: 200px;
+  height: 50px;
+  font-family: 'Raleway';
+  color: black;
 }
